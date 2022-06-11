@@ -9,6 +9,33 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <!-- Rows and Columns Definition -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" MinHeight="50" MaxHeight="80" />
+            <RowDefinition Height="8*" MinHeight="200" />
+            <RowDefinition Height="1*" MinHeight="30" MaxHeight="50" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MinWidth="180" MaxWidth="200" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Left Options Bar -->
+        <StackPanel
+            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />
+        
+        <!-- Top Options Bar -->
+        <StackPanel
+            Grid.Row="0" Grid.Column="1" />
+        
+        <!-- Main Text Area -->
+        <TextBlock
+            Grid.Row="1" Grid.Column="1" />
+
+        <!-- Bottom Messages Bar -->
+        <TextBlock
+            Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
 
     </Grid>
 </Page>
