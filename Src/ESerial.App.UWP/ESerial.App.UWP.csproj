@@ -154,6 +154,12 @@
       <Version>6.2.13</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ESerial.SerialLib\ESerial.SerialLib.csproj">
+      <Project>{3bd65e7c-f1cb-4bcf-a6d6-5008c5d66c1d}</Project>
+      <Name>ESerial.SerialLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
