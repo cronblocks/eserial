@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="a01554fe-af47-48d3-8068-cac076b1242c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>ESerial.App.UWP</DisplayName>
+    <DisplayName>ESerial</DisplayName>
     <PublisherDisplayName>usama</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
