@@ -11,31 +11,35 @@
     <Grid>
         <!-- Rows and Columns Definition -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" MinHeight="50" MaxHeight="80" />
-            <RowDefinition Height="8*" MinHeight="200" />
             <RowDefinition Height="1*" MinHeight="30" MaxHeight="50" />
+            <RowDefinition Height="8*" MinHeight="200" />
+            <RowDefinition Height="1*" MinHeight="30" MaxHeight="40" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" MinWidth="180" MaxWidth="200" />
+            <ColumnDefinition Width="1*" MinWidth="200" MaxWidth="250" />
             <ColumnDefinition Width="8*" />
         </Grid.ColumnDefinitions>
-        
+
         <!-- Left Options Bar -->
-        <StackPanel
-            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />
-        
+        <StackPanel x:Name="LeftOptionsPanel"
+            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="#F9F3F3F0" />
+
         <!-- Top Options Bar -->
-        <StackPanel
-            Grid.Row="0" Grid.Column="1" />
-        
+        <StackPanel x:Name="TopOptionsPanel"
+            Grid.Row="0" Grid.Column="1" Background="#F9FDFDEA" />
+
         <!-- Main Text Area -->
-        <TextBlock
-            Grid.Row="1" Grid.Column="1" />
+        <Grid x:Name="MainTextPanel"
+            Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="MainTextBox" TextWrapping="Wrap" Text="TextBox\r\nABC" FontFamily="Consolas" Foreground="#FF1C1C1C" Background="#66F4F4F4" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
+        </Grid>
 
         <!-- Bottom Messages Bar -->
-        <TextBlock
-            Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+        <StackPanel x:Name="BottomTextPanel"
+            Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock x:Name="MessageTextBlock" TextWrapping="Wrap" Text="TextBlock" FocusVisualPrimaryBrush="#FF27003A" Foreground="#FF220021" FontSize="12" Margin="3,3,3,1" VerticalAlignment="Bottom" FontWeight="Bold"/>
+        </StackPanel>
 
     </Grid>
 </Page>
