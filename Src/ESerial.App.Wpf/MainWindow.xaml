@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="ESerial" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" MinHeight="50"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!-- Command Panel -->
+        <Grid Grid.Row="0">
+            
+        </Grid>
+
+        <!-- Data Viewer Panel -->
+        <StackPanel Grid.Row="1">
+            
+        </StackPanel>
+
+        <!-- Message & Selection Panel -->
+        <StackPanel
+            Grid.Row="2"
+            Orientation="Vertical">
+
+            <!-- Port Selection -->
+            <StackPanel Height="Auto"></StackPanel>
+            
+            <!-- Messages -->
+            <TextBlock
+                x:Name="MessageViewerPanelText"
+                Width="Auto" Height="Auto"
+                HorizontalAlignment="Left" VerticalAlignment="Center"
+                Margin="10,3,10,3">
+                <TextBlock.Text> ... </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
 
     </Grid>
 </Window>
