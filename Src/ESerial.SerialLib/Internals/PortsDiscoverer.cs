@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.IO.Ports;
 using System.Text;
 using System.Threading;
-using System.Timers;
 
 namespace ESerial.SerialLib.Internals
 {
@@ -16,25 +15,41 @@ namespace ESerial.SerialLib.Internals
         {
             _foundPortsList = new List<string>();
 
-            _timer = new Timer(500);
-            _timer.Elapsed += FindPorts;
+            _timer = new Timer(FindPorts, null, TimeSpan.FromMilliseconds(-1), TimeSpan.FromMilliseconds(-1));
         }
 
-        private void FindPorts(object sender, ElapsedEventArgs e)
+        private void FindPorts(object obj)
         {
-            _timer.Stop();
-            _timer.Start();
+            foreach (string port in SerialPort.GetPortNames())
+            {
+                bool found = false;
+
+                foreach (string existingPort in _foundPortsList)
+                {
+                    if (port == existingPort)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    _foundPortsList.Add(port);
+                }
+            }
         }
 
         internal void StartPortsDiscovery()
         {
-            _timer.Start();
+            _timer.Change(TimeSpan.FromMilliseconds(50), TimeSpan.FromMilliseconds(50));
         }
 
         internal void StopPortsDiscovery()
         {
-            _timer.Stop();
-            Thread.Sleep(1000);
+            _timer.Change(TimeSpan.FromMilliseconds(-1), TimeSpan.FromMilliseconds(-1));
+            Thread.Sleep(200);
+            _foundPortsList.Clear();
         }
     }
 }
