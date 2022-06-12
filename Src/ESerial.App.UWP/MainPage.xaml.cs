@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESerial.SerialLib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,12 @@ namespace ESerial.App.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private SerialInterface _serial;
         public MainPage()
         {
             this.InitializeComponent();
+
+            _serial = new SerialInterface();
         }
     }
 }
