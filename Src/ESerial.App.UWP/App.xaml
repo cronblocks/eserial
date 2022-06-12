@@ -6,23 +6,6 @@
 
     <Application.Resources>
         
-        <!-- Grid Styles -->
-        <Style TargetType="Grid">
-            <Setter Property="Background" Value="#ffffffff" />
-        </Style>
-
-        <!-- StackPanel Styles -->
-        <Style TargetType="StackPanel">
-            <Setter Property="Background" Value="#f9f9f9f0" />
-            <Setter Property="Margin" Value="3 3 3 3" />
-        </Style>
-
-        <!-- TextBlock Styles -->
-        <Style TargetType="TextBlock">
-            <Setter Property="Width" Value="Auto" />
-            <Setter Property="Height" Value="Auto" />
-            <Setter Property="Margin" Value="3 3 3 3" />
-        </Style>
         
     </Application.Resources>
 
