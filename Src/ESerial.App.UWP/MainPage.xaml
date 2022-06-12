@@ -46,7 +46,7 @@
             <TextBox x:Name="MainTextBox" TextWrapping="Wrap" Text="" FontFamily="Lucida Console" Foreground="#FF222222" Background="#66EDE9AD" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top" BorderBrush="White" SelectionHighlightColor="#FFC96F20" SelectionHighlightColorWhenNotFocused="#FFF7AC6A" FontSize="14" FocusVisualPrimaryBrush="White" CornerRadius="3,3,3,3" FocusVisualPrimaryThickness="1,1,1,1" AllowFocusOnInteraction="True" IsReadOnly="True" Margin="0,3,0,0" Grid.Row="1" FocusVisualSecondaryBrush="White" PlaceholderText="Received Data" />
         </Grid>
         <!-- Bottom Messages Bar -->
-        <TextBlock x:Name="MessageTextBlock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="123" FocusVisualPrimaryBrush="{x:Null}" Foreground="#FF220021" FontSize="12" Margin="3,3,3,3" VerticalAlignment="Bottom" FontWeight="Bold"/>
+        <TextBlock x:Name="MessageTextBlock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="123" FocusVisualPrimaryBrush="{x:Null}" Foreground="#FF220021" FontSize="12" Margin="3,3,3,3" VerticalAlignment="Center" FontWeight="Bold"/>
 
     </Grid>
 </Page>
