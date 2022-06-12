@@ -23,12 +23,12 @@ namespace ESerial.App.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private SerialInterface _serial;
+        private SerialService _serial;
         public MainPage()
         {
             this.InitializeComponent();
 
-            _serial = new SerialInterface();
+            _serial = new SerialService();
         }
     }
 }
