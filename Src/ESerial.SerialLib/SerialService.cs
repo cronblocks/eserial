@@ -11,13 +11,25 @@ namespace ESerial.SerialLib
         public event Action<string> PortRemoved;
 
         private PortsDiscoverer _portDiscoverer;
-        
+
+        #region Service Initialization & Control
         public SerialService()
         {
             _portDiscoverer = new PortsDiscoverer();
             _portDiscoverer.NewPortFound += OnNewPortFound;
             _portDiscoverer.PortRemoved += OnPortRemoved;
         }
+
+        public void StartService()
+        {
+            _portDiscoverer.StartPortsDiscovery();
+        }
+
+        public void StopService()
+        {
+            _portDiscoverer.StopPortsDiscovery();
+        }
+        #endregion
 
         #region Port Discovery Dispatchers
         private void OnNewPortFound(string port)
@@ -30,15 +42,5 @@ namespace ESerial.SerialLib
             PortRemoved?.Invoke(port);
         }
         #endregion
-
-        public void StartService()
-        {
-            _portDiscoverer.StartPortsDiscovery();
-        }
-
-        public void StopService()
-        {
-            _portDiscoverer.StopPortsDiscovery();
-        }
     }
 }
