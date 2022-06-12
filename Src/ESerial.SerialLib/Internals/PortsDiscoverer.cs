@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Timers;
 
 namespace ESerial.SerialLib.Internals
@@ -27,12 +28,13 @@ namespace ESerial.SerialLib.Internals
 
         internal void StartPortsDiscovery()
         {
-            throw new NotImplementedException();
+            _timer.Start();
         }
 
         internal void StopPortsDiscovery()
         {
-            throw new NotImplementedException();
+            _timer.Stop();
+            Thread.Sleep(1000);
         }
     }
 }
