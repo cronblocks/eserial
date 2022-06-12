@@ -46,7 +46,7 @@ namespace ESerial.App.UWP
 
         private void OnGuiLoaded(object sender, RoutedEventArgs e)
         {
-            _serial.StartService();
+            _serial.StartPortsDiscoveryService();
         }
     }
 }

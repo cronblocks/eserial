@@ -20,12 +20,12 @@ namespace ESerial.SerialLib
             _portDiscoverer.PortRemoved += OnPortRemoved;
         }
 
-        public void StartService()
+        public void StartPortsDiscoveryService()
         {
             _portDiscoverer.StartPortsDiscovery();
         }
 
-        public void StopService()
+        public void StopPortsDiscoveryService()
         {
             _portDiscoverer.StopPortsDiscovery();
         }
