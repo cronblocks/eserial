@@ -14,7 +14,15 @@ namespace ESerial.SerialLib.Internals
         public PortsDiscoverer()
         {
             _foundPortsList = new List<string>();
+
             _timer = new Timer(500);
+            _timer.Elapsed += FindPorts;
+        }
+
+        private void FindPorts(object sender, ElapsedEventArgs e)
+        {
+            _timer.Stop();
+            _timer.Start();
         }
 
         internal void StartPortsDiscovery()
