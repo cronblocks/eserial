@@ -11,6 +11,7 @@ namespace ESerial.SerialLib
         public event Action<string> PortRemoved;
 
         private PortsDiscoverer _portDiscoverer;
+        private PortListener _portListener;
 
         #region Service Initialization & Control
         public SerialService()
