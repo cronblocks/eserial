@@ -23,14 +23,14 @@
 
         <!-- Left Options Bar -->
         <StackPanel x:Name="LeftOptionsPanel"
-            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="#F9F3F3F0" />
+            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="#F9F3F3F0" Margin="3,3,0,3" />
 
         <!-- Top Options Bar -->
         <StackPanel x:Name="TopOptionsPanel"
-            Grid.Row="0" Grid.Column="1" Background="#F9FDFDEA" />
+            Grid.Row="0" Grid.Column="1" Background="#F9FDFDEA" Margin="3,3,3,0" />
 
         <!-- Main Text Area -->
-        <TextBox x:Name="MainTextBox" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="TextBox\r\nABC" FontFamily="Lucida Console" Foreground="#FF222222" Background="#66D2E6D5" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top" BorderBrush="#66E6E6E6" SelectionHighlightColor="#FFD67B2C" SelectionHighlightColorWhenNotFocused="#FFFDC491" FontSize="14"/>
+        <TextBox x:Name="MainTextBox" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="TextBox\r\nABC" FontFamily="Lucida Console" Foreground="#FF222222" Background="#66D2E6D5" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top" BorderBrush="#66E6E6E6" SelectionHighlightColor="#FFD67B2C" SelectionHighlightColorWhenNotFocused="#FFFDC491" FontSize="14" Margin="3,3,3,3"/>
         
         <!-- Bottom Messages Bar -->
         <TextBlock x:Name="MessageTextBlock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="TextBlock" FocusVisualPrimaryBrush="#FF27003A" Foreground="#FF220021" FontSize="12" Margin="3,3,3,3" VerticalAlignment="Bottom" FontWeight="Bold"/>
