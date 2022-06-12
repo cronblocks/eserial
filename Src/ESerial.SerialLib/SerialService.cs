@@ -7,23 +7,21 @@ namespace ESerial.SerialLib
 {
     public class SerialService
     {
-        private PortFinder _portFinder;
-        private List<string> _portNamesList;
-
+        private PortsDiscoverer _portDiscoverer;
+        
         public SerialService()
         {
-            _portFinder = new PortFinder();
-            _portNamesList = new List<string>();
+            _portDiscoverer = new PortsDiscoverer();
         }
 
         public void StartService()
         {
-            _portNamesList.Clear();
+            _portDiscoverer.StartPortsDiscovery();
         }
 
         public void StopService()
         {
-            _portNamesList.Clear();
+            _portDiscoverer.StopPortsDiscovery();
         }
     }
 }
