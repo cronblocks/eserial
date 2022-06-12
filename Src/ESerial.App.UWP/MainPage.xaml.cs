@@ -43,5 +43,10 @@ namespace ESerial.App.UWP
         {
             Debug.WriteLine($"Port Removed: {port}");
         }
+
+        private void OnGuiLoaded(object sender, RoutedEventArgs e)
+        {
+            _serial.StartService();
+        }
     }
 }
