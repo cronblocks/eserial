@@ -24,7 +24,7 @@ namespace ESerial.SerialLib.Internals
         #region Starting and Stopping the Ports' Discovery
         internal void StartPortsDiscovery()
         {
-            _timer.Change(TimeSpan.FromMilliseconds(50), TimeSpan.FromMilliseconds(50));
+            _timer.Change(TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100));
         }
 
         internal void StopPortsDiscovery()
@@ -38,6 +38,8 @@ namespace ESerial.SerialLib.Internals
         #region Ports Discovery
         private void FindPorts(object obj)
         {
+            List<string> portsAvailable = new List<string>();
+
             foreach (string port in SerialPort.GetPortNames())
             {
                 if (!_foundPortsList.Contains(port))
