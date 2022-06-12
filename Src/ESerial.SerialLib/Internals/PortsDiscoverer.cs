@@ -38,35 +38,14 @@ namespace ESerial.SerialLib.Internals
         #region Ports Discovery
         private void FindPorts(object obj)
         {
-            FindNewlyAddedPorts();
-            FindRemovedPorts();
-        }
-
-        private void FindNewlyAddedPorts()
-        {
             foreach (string port in SerialPort.GetPortNames())
             {
-                bool alreadyExists = false;
-                foreach (string existingPort in _foundPortsList)
-                {
-                    if (port == existingPort)
-                    {
-                        alreadyExists = true;
-                        break;
-                    }
-                }
-
-                if (!alreadyExists)
+                if (!_foundPortsList.Contains(port))
                 {
                     _foundPortsList.Add(port);
                     NewPortFound?.Invoke(port);
                 }
             }
-        }
-
-        private void FindRemovedPorts()
-        {
-            throw new NotImplementedException();
         }
         #endregion
     }
