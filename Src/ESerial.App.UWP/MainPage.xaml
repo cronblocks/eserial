@@ -37,8 +37,8 @@
             </Grid.RowDefinitions>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition MaxWidth="75" MinWidth="65"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition MaxWidth="85" MinWidth="65"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="TransmissionTextBox" TextWrapping="NoWrap" Text="" PlaceholderText="Transmission Data" HorizontalContentAlignment="Left" FontFamily="Lucida Sans Typewriter" CornerRadius="3,3,3,3" HorizontalTextAlignment="Left" VerticalContentAlignment="Stretch" BorderBrush="#661D14D7" FocusVisualPrimaryBrush="#FF3A178A" FocusVisualSecondaryBrush="#99170A44" Foreground="#FF737C09" SelectionHighlightColor="#FFAC1F1A" SelectionHighlightColorWhenNotFocused="#FFFFAAAA" Margin="0,0,3,3" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                 <Button x:Name="TransmissionButton" Content="Send" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,3"/>
