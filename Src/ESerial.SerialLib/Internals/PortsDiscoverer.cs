@@ -11,6 +11,9 @@ namespace ESerial.SerialLib.Internals
         private Timer _timer;
         private List<string> _foundPortsList;
 
+        public event Action<string> NewPortFound;
+        public event Action<string> PortRemoved;
+
         public PortsDiscoverer()
         {
             _foundPortsList = new List<string>();
@@ -18,28 +21,7 @@ namespace ESerial.SerialLib.Internals
             _timer = new Timer(FindPorts, null, TimeSpan.FromMilliseconds(-1), TimeSpan.FromMilliseconds(-1));
         }
 
-        private void FindPorts(object obj)
-        {
-            foreach (string port in SerialPort.GetPortNames())
-            {
-                bool found = false;
-
-                foreach (string existingPort in _foundPortsList)
-                {
-                    if (port == existingPort)
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (!found)
-                {
-                    _foundPortsList.Add(port);
-                }
-            }
-        }
-
+        #region Starting and Stopping the Ports' Discovery
         internal void StartPortsDiscovery()
         {
             _timer.Change(TimeSpan.FromMilliseconds(50), TimeSpan.FromMilliseconds(50));
@@ -51,5 +33,41 @@ namespace ESerial.SerialLib.Internals
             Thread.Sleep(200);
             _foundPortsList.Clear();
         }
+        #endregion
+
+        #region Ports Discovery
+        private void FindPorts(object obj)
+        {
+            FindNewlyAddedPorts();
+            FindRemovedPorts();
+        }
+
+        private void FindNewlyAddedPorts()
+        {
+            foreach (string port in SerialPort.GetPortNames())
+            {
+                bool alreadyExists = false;
+                foreach (string existingPort in _foundPortsList)
+                {
+                    if (port == existingPort)
+                    {
+                        alreadyExists = true;
+                        break;
+                    }
+                }
+
+                if (!alreadyExists)
+                {
+                    _foundPortsList.Add(port);
+                    NewPortFound?.Invoke(port);
+                }
+            }
+        }
+
+        private void FindRemovedPorts()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
