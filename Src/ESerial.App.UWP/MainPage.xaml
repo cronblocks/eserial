@@ -23,17 +23,17 @@
 
         <!-- Left Options Bar -->
         <StackPanel x:Name="LeftOptionsPanel"
-            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="#F9F3F3F0" Margin="3,3,0,3" />
+            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="3,3,0,3" Background="#FFFFF7F7" FocusVisualPrimaryBrush="{x:Null}" />
 
         <!-- Top Options Bar -->
         <StackPanel x:Name="TopOptionsPanel"
-            Grid.Row="0" Grid.Column="1" Background="#F9FDFDEA" Margin="3,3,3,0" />
+            Grid.Row="0" Grid.Column="1" Margin="0,3,3,0" Background="#FFFFF7F7" FocusVisualPrimaryBrush="{x:Null}" Padding="3,0,0,0" />
 
         <!-- Main Text Area -->
-        <TextBox x:Name="MainTextBox" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="TextBox\r\nABC" FontFamily="Lucida Console" Foreground="#FF222222" Background="#66D2E6D5" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top" BorderBrush="#66E6E6E6" SelectionHighlightColor="#FFD67B2C" SelectionHighlightColorWhenNotFocused="#FFFDC491" FontSize="14" Margin="3,3,3,3"/>
-        
+        <TextBox x:Name="MainTextBox" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="TextBox\r\nABC" FontFamily="Lucida Console" Foreground="#FF222222" Background="#66D2E6D5" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top" BorderBrush="#66E9E9E9" SelectionHighlightColor="#FFC96F20" SelectionHighlightColorWhenNotFocused="#FFF7AC6A" FontSize="14" Margin="3,3,3,3" FocusVisualPrimaryBrush="#FFE3E3E3" CornerRadius="3,3,3,3" FocusVisualPrimaryThickness="1,1,1,1" AllowFocusOnInteraction="False" IsReadOnly="True"/>
+
         <!-- Bottom Messages Bar -->
-        <TextBlock x:Name="MessageTextBlock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="TextBlock" FocusVisualPrimaryBrush="#FF27003A" Foreground="#FF220021" FontSize="12" Margin="3,3,3,3" VerticalAlignment="Bottom" FontWeight="Bold"/>
-        
+        <TextBlock x:Name="MessageTextBlock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="TextBlock" FocusVisualPrimaryBrush="{x:Null}" Foreground="#FF220021" FontSize="12" Margin="3,3,3,3" VerticalAlignment="Bottom" FontWeight="Bold"/>
+
     </Grid>
 </Page>
