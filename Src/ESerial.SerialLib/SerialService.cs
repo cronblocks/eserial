@@ -19,15 +19,17 @@ namespace ESerial.SerialLib
             _portDiscoverer.PortRemoved += OnPortRemoved;
         }
 
-        private void OnPortRemoved(string port)
-        {
-            PortRemoved?.Invoke(port);
-        }
-
+        #region Port Discovery Dispatchers
         private void OnNewPortFound(string port)
         {
             NewPortFound?.Invoke(port);
         }
+
+        private void OnPortRemoved(string port)
+        {
+            PortRemoved?.Invoke(port);
+        }
+        #endregion
 
         public void StartService()
         {

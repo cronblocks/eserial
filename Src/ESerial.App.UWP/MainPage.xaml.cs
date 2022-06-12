@@ -1,6 +1,7 @@
 ﻿using ESerial.SerialLib;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -29,6 +30,18 @@ namespace ESerial.App.UWP
             this.InitializeComponent();
 
             _serial = new SerialService();
+            _serial.NewPortFound += OnNewSerialPortFound;
+            _serial.PortRemoved += OnSerialPortRemoved;
+        }
+
+        private void OnNewSerialPortFound(string port)
+        {
+            Debug.WriteLine($"Port Added: {port}");
+        }
+
+        private void OnSerialPortRemoved(string port)
+        {
+            Debug.WriteLine($"Port Removed: {port}");
         }
     }
 }
