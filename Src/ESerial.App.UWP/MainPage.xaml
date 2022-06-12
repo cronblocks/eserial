@@ -30,16 +30,10 @@
             Grid.Row="0" Grid.Column="1" Background="#F9FDFDEA" />
 
         <!-- Main Text Area -->
-        <Grid x:Name="MainTextPanel"
-            Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="MainTextBox" TextWrapping="Wrap" Text="TextBox\r\nABC" FontFamily="Consolas" Foreground="#FF1C1C1C" Background="#66F4F4F4" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
-        </Grid>
-
+        <TextBox x:Name="MainTextBox" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="TextBox\r\nABC" FontFamily="Consolas" Foreground="#FF1C1C1C" Background="#66F4F4F4" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
+        
         <!-- Bottom Messages Bar -->
-        <StackPanel x:Name="BottomTextPanel"
-            Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <TextBlock x:Name="MessageTextBlock" TextWrapping="Wrap" Text="TextBlock" FocusVisualPrimaryBrush="#FF27003A" Foreground="#FF220021" FontSize="12" Margin="3,3,3,1" VerticalAlignment="Bottom" FontWeight="Bold"/>
-        </StackPanel>
-
+        <TextBlock x:Name="MessageTextBlock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="TextBlock" FocusVisualPrimaryBrush="#FF27003A" Foreground="#FF220021" FontSize="12" Margin="3,3,3,1" VerticalAlignment="Bottom" FontWeight="Bold"/>
+        
     </Grid>
 </Page>
