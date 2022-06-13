@@ -20,6 +20,8 @@ namespace ESerial.App.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SerialService _serial;
+
         public MainWindow()
         {
             InitializeComponent();
