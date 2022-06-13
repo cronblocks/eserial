@@ -128,8 +128,8 @@ namespace ESerial.App.UWP
         {
             if (uint.TryParse(InterLineTimeDelayValueTextBox.Text, out uint val))
             {
-                Debug.WriteLine($"Inter-line Time Delay - {val}ms");
                 _serial.InterLineTimeDelay = val;
+                Debug.WriteLine($"Inter-line Time Delay - {val}ms");
             }
         }
 
@@ -137,24 +137,22 @@ namespace ESerial.App.UWP
         {
             if (LineEndingNone?.IsChecked == true)
             {
-                Debug.WriteLine("Line Ending - None");
                 _serial.LineEnding = LineEnding.None;
             }
             else if (LineEndingCR?.IsChecked == true)
             {
-                Debug.WriteLine("Line Ending - CR");
                 _serial.LineEnding = LineEnding.CR;
             }
             else if (LineEndingLF?.IsChecked == true)
             {
-                Debug.WriteLine("Line Ending - LF");
                 _serial.LineEnding = LineEnding.LF;
             }
             else if (LineEndingCRLF?.IsChecked == true)
             {
-                Debug.WriteLine("Line Ending - CRLF");
                 _serial.LineEnding = LineEnding.CRLF;
             }
+
+            Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
         }
         #endregion
 
