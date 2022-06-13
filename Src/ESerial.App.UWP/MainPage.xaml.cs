@@ -73,9 +73,17 @@ namespace ESerial.App.UWP
 
         private void SetUiBaudRates()
         {
+            int currentIndex = 0;
             foreach (BaudRate baudRate in Enum.GetValues(typeof(BaudRate)))
             {
+                BaudRateComboBox.Items.Add(baudRate.ToString().Replace("_", ""));
 
+                if (baudRate == _serial.BaudRate)
+                {
+                    BaudRateComboBox.SelectedIndex = currentIndex;
+                }
+
+                currentIndex++;
             }
         }
         #endregion
