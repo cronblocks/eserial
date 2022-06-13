@@ -52,14 +52,17 @@ namespace ESerial.SerialLib.Internals
             }
         }
 
-        private void PortDataReceiver(object obj)
+        private void PortDataReceiver(object _)
         {
             while (_isRunning)
             {
                 try
                 {
-                    string message = _serialPort.ReadLine();
-                    Console.WriteLine(message);
+                    string receivedData = _serialPort.ReadLine();
+                    if (!string.IsNullOrEmpty(receivedData))
+                    {
+                        DataReceived?.Invoke(receivedData);
+                    }
                 }
                 catch (TimeoutException) { }
             }
