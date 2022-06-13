@@ -22,6 +22,42 @@ namespace ESerial.App.UWP
             _serial = new SerialService();
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
+
+            SetUiLineEndingOption();
+        }
+
+        private void SetUiLineEndingOption()
+        {
+            switch (_serial.LineEnding)
+            {
+                case SerialLib.Types.LineEnding.None:
+                    LineEndingNone.IsChecked = true;
+                    LineEndingCR.IsChecked = false;
+                    LineEndingLF.IsChecked = false;
+                    LineEndingCRLF.IsChecked = false;
+                    break;
+
+                case SerialLib.Types.LineEnding.CR:
+                    LineEndingNone.IsChecked = false;
+                    LineEndingCR.IsChecked = true;
+                    LineEndingLF.IsChecked = false;
+                    LineEndingCRLF.IsChecked = false;
+                    break;
+
+                case SerialLib.Types.LineEnding.LF:
+                    LineEndingNone.IsChecked = false;
+                    LineEndingCR.IsChecked = false;
+                    LineEndingLF.IsChecked = true;
+                    LineEndingCRLF.IsChecked = false;
+                    break;
+
+                case SerialLib.Types.LineEnding.CRLF:
+                    LineEndingNone.IsChecked = false;
+                    LineEndingCR.IsChecked = false;
+                    LineEndingLF.IsChecked = false;
+                    LineEndingCRLF.IsChecked = true;
+                    break;
+            }
         }
 
         #region GUI Events Handling
