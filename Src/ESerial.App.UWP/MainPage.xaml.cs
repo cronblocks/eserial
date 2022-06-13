@@ -126,6 +126,23 @@ namespace ESerial.App.UWP
                 _serial.InterLineTimeDelay = val;
             }
         }
+
+        private void OnBaudRateSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (BaudRateComboBox.SelectedIndex >= 0)
+            {
+                string enumStr = $"_{BaudRateComboBox.Items[BaudRateComboBox.SelectedIndex].ToString()}";
+
+                if (Enum.IsDefined(typeof(BaudRate), enumStr))
+                {
+                    Enum.TryParse(typeof(BaudRate), enumStr, out object baudRate);
+                    _serial.BaudRate = (BaudRate)baudRate;
+                }
+            }
+
+            Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
+        }
+
         private void OnSerialPortSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SerialPortComboBox.SelectedIndex >= 0)
