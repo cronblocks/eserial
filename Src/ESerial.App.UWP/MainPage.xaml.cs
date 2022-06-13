@@ -28,7 +28,7 @@ namespace ESerial.App.UWP
             _serial.DataReceived += OnSerialPortDataReceived;
             _serial.DataSent += OnSerialPortDataSent;
 
-        SetUiLineEndingOption();
+            SetUiLineEndingOption();
             SetUiInterLineTimeDelay();
             SetUiBaudRates();
         }
