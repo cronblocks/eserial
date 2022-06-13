@@ -28,10 +28,10 @@ namespace ESerial.SerialLib.Internals
                 _serialPort.WriteTimeout = WRITE_TIMEOUT_MILLISECONDS;
                 _serialPort.Open();
 
-                _isRunning = true;
-                
                 _thread = new Thread(PortDataReceiver);
                 _thread.Start();
+
+                _isRunning = true;
             }
         }
 
