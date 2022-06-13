@@ -154,6 +154,11 @@ namespace ESerial.App.UWP
 
             Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
         }
+
+        private void OnStartButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
         #endregion
 
         #region Serial Port Events Handling
