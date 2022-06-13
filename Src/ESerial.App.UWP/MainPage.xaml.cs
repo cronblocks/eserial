@@ -25,6 +25,7 @@ namespace ESerial.App.UWP
             _serial.PortRemoved += OnSerialPortRemoved;
 
             SetUiLineEndingOption();
+            SetUiInterLineTimeDelay();
         }
 
         private void SetUiLineEndingOption()
@@ -59,6 +60,11 @@ namespace ESerial.App.UWP
                     LineEndingCRLF.IsChecked = true;
                     break;
             }
+        }
+
+        private void SetUiInterLineTimeDelay()
+        {
+            InterLineTimeDelayValueTextBox.Text = $"{_serial.InterLineTimeDelay}";
         }
 
         #region GUI Events Handling
