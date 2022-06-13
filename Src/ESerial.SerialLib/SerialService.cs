@@ -12,7 +12,7 @@ namespace ESerial.SerialLib
         public event Action<string> PortRemoved;
 
         public LineEnding LineEnding { get; set; } = LineEnding.None;
-        public UInt32 InterLineTimeGap { get; set; } = 1000;
+        public UInt32 InterLineTimeDelay { get; set; } = 1000; // Time delay in milliseconds
 
         private PortsDiscoverer _portDiscoverer;
         private PortListener _portListener;
