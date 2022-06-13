@@ -25,8 +25,10 @@ namespace ESerial.App.UWP
 
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
+            _serial.DataReceived += OnSerialPortDataReceived;
+            _serial.DataSent += OnSerialPortDataSent;
 
-            SetUiLineEndingOption();
+        SetUiLineEndingOption();
             SetUiInterLineTimeDelay();
             SetUiBaudRates();
         }
@@ -192,6 +194,14 @@ namespace ESerial.App.UWP
                             SerialPortComboBox.SelectedIndex = -1;
                         }
                     });
+        }
+
+        private void OnSerialPortDataReceived(string data)
+        {
+        }
+
+        private void OnSerialPortDataSent(string data)
+        {
         }
         #endregion
     }
