@@ -126,6 +126,19 @@ namespace ESerial.App.UWP
                 _serial.InterLineTimeDelay = val;
             }
         }
+        private void OnSerialPortSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SerialPortComboBox.SelectedIndex >= 0)
+            {
+                _serial.SerialPort = SerialPortComboBox.Items[SerialPortComboBox.SelectedIndex].ToString();
+            }
+            else
+            {
+                _serial.SerialPort = "";
+            }
+
+            Debug.WriteLine($"Serial Port - {_serial.SerialPort}");
+        }
         #endregion
 
         #region Serial Port Events Handling

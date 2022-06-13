@@ -11,6 +11,7 @@ namespace ESerial.SerialLib
         public event Action<string> NewPortFound;
         public event Action<string> PortRemoved;
 
+        public string SerialPort { get; set; }
         public LineEnding LineEnding { get; set; } = LineEnding.None;
         public BaudRate BaudRate { get; set; } = BaudRate._115200;
         public uint InterLineTimeDelay { get; set; } = 1000; // Time delay in milliseconds
