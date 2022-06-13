@@ -12,8 +12,8 @@ namespace ESerial.SerialLib.Internals
         private const int WRITE_TIMEOUT_MILLISECONDS = 150;
         private const int READ_TIMEOUT_MILLISECONDS = 50;
 
-        public event Action<string> DataReceived;
         public event Action<string> DataSent;
+        public event Action<string> DataReceived;
 
         private bool _isRunning = false;
         private SerialPort _serialPort = null;
@@ -49,6 +49,18 @@ namespace ESerial.SerialLib.Internals
                     _serialPort.Close();
                     _serialPort = null;
                 }
+            }
+        }
+
+        public void SendData(string data)
+        {
+            if (_serialPort != null && _serialPort.IsOpen)
+            {
+                _serialPort.Write(data);
+            }
+            else
+            {
+                throw new Exception("Serial port is not working");
             }
         }
 
