@@ -1,5 +1,6 @@
 ﻿using ESerial.SerialLib;
 using ESerial.SerialLib.Types;
+using System;
 using System.Diagnostics;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -27,8 +28,10 @@ namespace ESerial.App.UWP
 
             SetUiLineEndingOption();
             SetUiInterLineTimeDelay();
+            SetUiBaudRates();
         }
 
+        #region GUI Initialization
         private void SetUiLineEndingOption()
         {
             switch (_serial.LineEnding)
@@ -67,6 +70,15 @@ namespace ESerial.App.UWP
         {
             InterLineTimeDelayValueTextBox.Text = $"{_serial.InterLineTimeDelay}";
         }
+
+        private void SetUiBaudRates()
+        {
+            foreach (BaudRate baudRate in Enum.GetValues(typeof(BaudRate)))
+            {
+
+            }
+        }
+        #endregion
 
         #region GUI Events Handling
         private void OnGuiLoaded(object sender, RoutedEventArgs e)
