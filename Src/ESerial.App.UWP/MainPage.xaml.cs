@@ -1,4 +1,5 @@
 ﻿using ESerial.SerialLib;
+using ESerial.SerialLib.Types;
 using System.Diagnostics;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -78,22 +79,22 @@ namespace ESerial.App.UWP
             if (LineEndingNone?.IsChecked == true)
             {
                 Debug.WriteLine("Line Ending - None");
-                _serial.LineEnding = SerialLib.Types.LineEnding.None;
+                _serial.LineEnding = LineEnding.None;
             }
             else if (LineEndingCR?.IsChecked == true)
             {
                 Debug.WriteLine("Line Ending - CR");
-                _serial.LineEnding = SerialLib.Types.LineEnding.CR;
+                _serial.LineEnding = LineEnding.CR;
             }
             else if (LineEndingLF?.IsChecked == true)
             {
                 Debug.WriteLine("Line Ending - LF");
-                _serial.LineEnding = SerialLib.Types.LineEnding.LF;
+                _serial.LineEnding = LineEnding.LF;
             }
             else if (LineEndingCRLF?.IsChecked == true)
             {
                 Debug.WriteLine("Line Ending - CRLF");
-                _serial.LineEnding = SerialLib.Types.LineEnding.CRLF;
+                _serial.LineEnding = LineEnding.CRLF;
             }
         }
 
