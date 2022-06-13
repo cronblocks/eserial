@@ -3,6 +3,7 @@ using ESerial.SerialLib.Types;
 using System;
 using System.Diagnostics;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -159,6 +160,14 @@ namespace ESerial.App.UWP
 
         private void OnStartButtonClick(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                _serial.StartSerialPortTransactions();
+            }
+            catch (Exception ex)
+            {
+                MessageDialog messageDialog = new MessageDialog(ex.Message, "Error");
+                _ = messageDialog.ShowAsync();
 
         }
         #endregion
