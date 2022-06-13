@@ -12,6 +12,7 @@ namespace ESerial.SerialLib
         public event Action<string> PortRemoved;
         public event Action<string> DataReceived;
         public event Action<string> DataSent;
+        public event Action<string> DataReceived;
 
         public string SerialPort { get; set; }
         public LineEnding LineEnding { get; set; } = LineEnding.None;
