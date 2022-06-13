@@ -21,7 +21,6 @@ namespace ESerial.App.UWP
 
             this.InitializeComponent();
 
-            _serial = new SerialService();
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
 
@@ -70,7 +69,26 @@ namespace ESerial.App.UWP
 
         private void OnLineEndingChanged(object sender, RoutedEventArgs e)
         {
-
+            if (LineEndingNone?.IsChecked == true)
+            {
+                Debug.WriteLine("Line Ending - None");
+                _serial.LineEnding = SerialLib.Types.LineEnding.None;
+            }
+            else if (LineEndingCR?.IsChecked == true)
+            {
+                Debug.WriteLine("Line Ending - CR");
+                _serial.LineEnding = SerialLib.Types.LineEnding.CR;
+            }
+            else if (LineEndingLF?.IsChecked == true)
+            {
+                Debug.WriteLine("Line Ending - LF");
+                _serial.LineEnding = SerialLib.Types.LineEnding.LF;
+            }
+            else if (LineEndingCRLF?.IsChecked == true)
+            {
+                Debug.WriteLine("Line Ending - CRLF");
+                _serial.LineEnding = SerialLib.Types.LineEnding.CRLF;
+            }
         }
         #endregion
 
