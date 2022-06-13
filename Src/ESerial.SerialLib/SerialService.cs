@@ -10,7 +10,6 @@ namespace ESerial.SerialLib
     {
         public event Action<string> NewPortFound;
         public event Action<string> PortRemoved;
-        public event Action<string> DataReceived;
         public event Action<string> DataSent;
         public event Action<string> DataReceived;
 
@@ -38,6 +37,30 @@ namespace ESerial.SerialLib
         public void StopPortsDiscoveryService()
         {
             _portDiscoverer.StopPortsDiscovery();
+        }
+
+        public void StartSerialPortTransactions()
+        {
+            if (!string.IsNullOrEmpty(SerialPort))
+            {
+                _portCommunicator = new PortCommunicator();
+                _portCommunicator.DataSent += OnDataSent;
+                _portCommunicator.DataReceived += OnDataReceived;
+                _portCommunicator.StartPortTransactions(SerialPort, BaudRate);
+            }
+            else
+            {
+                throw new Exception("Invalid Serial Port");
+            }
+        }
+
+        public void StopSerialPortTransactions()
+        {
+            if (_portCommunicator != null)
+            {
+                _portCommunicator.StopPortTransaction();
+                _portCommunicator = null;
+            }
         }
         #endregion
 
