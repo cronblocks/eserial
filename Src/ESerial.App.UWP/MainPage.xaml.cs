@@ -29,6 +29,11 @@ namespace ESerial.App.UWP
         {
             _serial.StartPortsDiscoveryService();
         }
+
+        private void OnLineEndingChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
         #endregion
 
         #region Serial Port Events Handling

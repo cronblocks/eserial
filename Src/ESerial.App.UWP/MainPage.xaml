@@ -56,10 +56,10 @@
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="LineEndingsOptionsPanel"
                 Padding="3,0,0,0" FlowDirection="LeftToRight" ScrollViewer.VerticalScrollBarVisibility="Disabled" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,5,0" >
-                <RadioButton x:Name="LineEndingCR" Content="CR" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0"/>
-                <RadioButton x:Name="LineEndingLF" Content="LF" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0"/>
-                <RadioButton x:Name="LineEndingCRLF" Content="CRLF" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0"/>
-                <RadioButton x:Name="LineEndingNone" Content="None" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0" IsChecked="True"/>
+                <RadioButton x:Name="LineEndingCR" Content="CR" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0" Checked="OnLineEndingChanged"/>
+                <RadioButton x:Name="LineEndingLF" Content="LF" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0" Checked="OnLineEndingChanged"/>
+                <RadioButton x:Name="LineEndingCRLF" Content="CRLF" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0" Checked="OnLineEndingChanged"/>
+                <RadioButton x:Name="LineEndingNone" Content="None" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="15,0,0,0" MinWidth="0" FontSize="12" Padding="8,0,0,0" IsChecked="True" Checked="OnLineEndingChanged"/>
             </StackPanel>
         </Grid>
 
