@@ -24,6 +24,14 @@ namespace ESerial.App.UWP
             _serial.PortRemoved += OnSerialPortRemoved;
         }
 
+        #region GUI Events Handling
+        private void OnGuiLoaded(object sender, RoutedEventArgs e)
+        {
+            _serial.StartPortsDiscoveryService();
+        }
+        #endregion
+
+        #region Serial Port Events Handling
         private void OnNewSerialPortFound(string port)
         {
             Debug.WriteLine($"Port Added: {port}");
@@ -55,10 +63,6 @@ namespace ESerial.App.UWP
                         }
                     });
         }
-
-        private void OnGuiLoaded(object sender, RoutedEventArgs e)
-        {
-            _serial.StartPortsDiscoveryService();
-        }
+        #endregion
     }
 }
