@@ -169,6 +169,7 @@ namespace ESerial.App.UWP
                 MessageDialog messageDialog = new MessageDialog(ex.Message, "Error");
                 _ = messageDialog.ShowAsync();
 
+            }
         }
         #endregion
 
@@ -207,6 +208,12 @@ namespace ESerial.App.UWP
 
         private void OnSerialPortDataReceived(string data)
         {
+            _ = MainTextBox.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.High,
+                    () =>
+                    {
+                        MainTextBox.Text = MainTextBox.Text + data;
+                    });
         }
 
         private void OnSerialPortDataSent(string data)
