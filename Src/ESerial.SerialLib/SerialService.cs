@@ -19,7 +19,7 @@ namespace ESerial.SerialLib
         public uint InterLineTimeDelay { get; set; } = 1000; // Time delay in milliseconds
 
         private PortsDiscoverer _portDiscoverer;
-        private PortListener _portListener;
+        private PortCommunicator _portCommunicator;
 
         #region Service Initialization & Control
         public SerialService()

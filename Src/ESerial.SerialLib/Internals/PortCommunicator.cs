@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace ESerial.SerialLib.Internals
 {
-    internal class PortListener
+    internal class PortCommunicator
     {
         public event Action<string> DataReceived;
         public event Action<string> DataSent;
