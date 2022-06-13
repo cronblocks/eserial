@@ -52,5 +52,17 @@ namespace ESerial.SerialLib
             PortRemoved?.Invoke(port);
         }
         #endregion
+
+        #region Data Transmission Dispatchers
+        private void OnDataSent(string data)
+        {
+            DataSent?.Invoke(data);
+        }
+
+        private void OnDataReceived(string data)
+        {
+            DataReceived?.Invoke(data);
+        }
+        #endregion
     }
 }
