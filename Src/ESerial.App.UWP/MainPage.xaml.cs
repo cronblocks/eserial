@@ -96,6 +96,15 @@ namespace ESerial.App.UWP
                 _serial.LineEnding = SerialLib.Types.LineEnding.CRLF;
             }
         }
+
+        private void OnInterLineTimeDelayChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            if (uint.TryParse(InterLineTimeDelayValueTextBox.Text, out uint val))
+            {
+                Debug.WriteLine($"Inter-line Time Delay - {val}ms");
+                _serial.InterLineTimeDelay = val;
+            }
+        }
         #endregion
 
         #region Serial Port Events Handling
