@@ -1,4 +1,5 @@
 ﻿using ESerial.SerialLib.Internals;
+using ESerial.SerialLib.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,8 @@ namespace ESerial.SerialLib
     {
         public event Action<string> NewPortFound;
         public event Action<string> PortRemoved;
+
+        public LineEnding LineEnding { get; set; } = LineEnding.None;
 
         private PortsDiscoverer _portDiscoverer;
         private PortListener _portListener;
