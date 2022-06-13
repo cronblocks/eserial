@@ -53,7 +53,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MinWidth="260"/>
                 <ColumnDefinition Width="*" MinWidth="260"/>
-                <ColumnDefinition Width="*" MinWidth="260"/>
+                <ColumnDefinition Width="*" MinWidth="330"/>
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="LineEndingsOptionsPanel"
                 Padding="3,0,0,0" FlowDirection="LeftToRight" ScrollViewer.VerticalScrollBarVisibility="Disabled" Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,5,0" >
