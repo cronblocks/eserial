@@ -17,6 +17,8 @@ namespace ESerial.App.UWP
 
         public MainPage()
         {
+            _serial = new SerialService();
+
             this.InitializeComponent();
 
             _serial = new SerialService();
