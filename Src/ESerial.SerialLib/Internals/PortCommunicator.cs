@@ -19,7 +19,7 @@ namespace ESerial.SerialLib.Internals
         private SerialPort _serialPort = null;
         private Thread _thread = null;
 
-        public void StartPortTransaction(string portName, BaudRate baudRate)
+        public void StartPortTransactions(string portName, BaudRate baudRate)
         {
             if (!_isRunning)
             {
