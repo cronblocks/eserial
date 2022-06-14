@@ -237,14 +237,29 @@ namespace ESerial.App.WPF
 
         private void OnStartButtonClicked(object sender, RoutedEventArgs e)
         {
-            try
+            if ((string)StartButton.Content == _startButtonStartTitle)
             {
-                _serial.StartSerialPortTransactions();
-                SetGuiState(GuiState.TransmissionStartedNormal);
+                try
+                {
+                    _serial.StartSerialPortTransactions();
+                    SetGuiState(GuiState.TransmissionStartedNormal);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Error");
+                try
+                {
+                    _serial.StopSerialPortTransactions();
+                    SetGuiState(GuiState.TransmissionStopped);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
             }
         }
 
