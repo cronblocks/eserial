@@ -10,6 +10,8 @@ namespace ESerial.SerialLib
     {
         public event Action<string> NewPortFound;
         public event Action<string> PortRemoved;
+        public event Action PortConnected;
+        public event Action PortDisconnected;
         public event Action<string> DataSent;
         public event Action<string> DataReceived;
 
