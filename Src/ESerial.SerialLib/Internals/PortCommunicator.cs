@@ -12,6 +12,7 @@ namespace ESerial.SerialLib.Internals
         private const int WRITE_TIMEOUT_MILLISECONDS = 150;
         private const int READ_TIMEOUT_MILLISECONDS = 50;
 
+        public event Action PortDisconnected;
         public event Action<string> DataSent;
         public event Action<string> DataReceived;
 

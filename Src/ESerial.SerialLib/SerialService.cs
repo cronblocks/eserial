@@ -45,6 +45,7 @@ namespace ESerial.SerialLib
             if (!string.IsNullOrEmpty(SerialPort))
             {
                 _portCommunicator = new PortCommunicator();
+                _portCommunicator.PortDisconnected += OnPortDisconnected;
                 _portCommunicator.DataSent += OnDataSent;
                 _portCommunicator.DataReceived += OnDataReceived;
                 _portCommunicator.StartPortTransactions(SerialPort, BaudRate);
@@ -78,6 +79,11 @@ namespace ESerial.SerialLib
         #endregion
 
         #region Data Transmission Dispatchers
+        private void OnPortDisconnected()
+        {
+            PortDisconnected?.Invoke();
+        }
+
         private void OnDataSent(string data)
         {
             DataSent?.Invoke(data);
