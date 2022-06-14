@@ -22,12 +22,12 @@ namespace ESerial.App.WPF
     public partial class MainWindow : Window
     {
         private SerialService _serial;
-        private FileStream _dumpFileStream;
+        private FileStream? _dumpFileStream;
 
         private string _startButtonStartTitle = "";
         private string _startButtonStopTitle = "Stop";
         private string _dumpDirectoryName = $"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}ESerial-Dump{Path.DirectorySeparatorChar}";
-        private string _dumpFilename;
+        private string _dumpFilename = "";
 
         public MainWindow()
         {
@@ -294,7 +294,7 @@ namespace ESerial.App.WPF
 
                 try
                 {
-                    _dumpFileStream.Close();
+                    _dumpFileStream?.Close();
                 }
                 catch (Exception ex)
                 {
@@ -372,8 +372,8 @@ namespace ESerial.App.WPF
             try
             {
                 byte[] dataBytes = Encoding.ASCII.GetBytes(data);
-                _dumpFileStream.Write(dataBytes, 0, dataBytes.Length);
-                _dumpFileStream.Flush();
+                _dumpFileStream?.Write(dataBytes, 0, dataBytes.Length);
+                _dumpFileStream?.Flush();
             }
             catch (Exception ex)
             {
