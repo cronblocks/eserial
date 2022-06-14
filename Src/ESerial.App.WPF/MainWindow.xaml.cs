@@ -3,6 +3,7 @@ using ESerial.SerialLib.Types;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,6 +22,7 @@ namespace ESerial.App.WPF
     public partial class MainWindow : Window
     {
         private SerialService _serial;
+        private FileStream _dumpFileStream;
 
         private string _startButtonStartTitle = "";
         private string _startButtonStopTitle = "Stop";
@@ -36,6 +38,7 @@ namespace ESerial.App.WPF
             _startButtonStartTitle = (string)StartButton.Content;
 
             SaveToFileName.Text = $"Saving to: {_dumpFilename}";
+            _dumpFileStream = new FileStream(_dumpFilename, FileMode.OpenOrCreate);
 
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
@@ -171,6 +174,15 @@ namespace ESerial.App.WPF
             catch (Exception ex)
             {
                 Debug.WriteLine($"Window Closing Error: {ex.Message}");
+            }
+
+            try
+            {
+                _dumpFileStream.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"File Closing Error: {ex.Message}");
             }
 
             Application.Current.Shutdown();
@@ -321,15 +333,26 @@ namespace ESerial.App.WPF
             try
             {
                 MainTextBox?.Dispatcher.Invoke(
-                () =>
-                {
-                    MainTextBox.Text = MainTextBox.Text + data;
-                    MainTextBox.ScrollToEnd();
-                });
+                    () =>
+                    {
+                        MainTextBox.Text = MainTextBox.Text + data;
+                        MainTextBox.ScrollToEnd();
+                    });
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"GUI Update Error: {ex.Message}");
+            }
+
+            try
+            {
+                byte[] dataBytes = Encoding.ASCII.GetBytes(data);
+                _dumpFileStream.Write(dataBytes, 0, dataBytes.Length);
+                _dumpFileStream.Flush();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"File Writing Error: {ex.Message}");
             }
         }
 
