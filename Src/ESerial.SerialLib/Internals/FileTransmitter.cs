@@ -11,7 +11,7 @@ namespace ESerial.SerialLib.Internals
         private readonly string _filename;
         private readonly PortCommunicator _portCommunicator;
 
-        private bool _isRunning;
+        private volatile bool _isRunning;
         private FileStream _fileStream;
         private Thread _thread;
 
