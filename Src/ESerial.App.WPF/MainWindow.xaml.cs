@@ -85,7 +85,7 @@ namespace ESerial.App.WPF
 
         private void SetUiInterLineTimeDelay()
         {
-            InterLineTimeDelayValueTextBox.Text = $"{_serial.InterLineTimeDelay}";
+            FileInterLineTimeDelayValueTextBox.Text = $"{_serial.FileInterLineTimeDelay}";
         }
 
         private void SetUiBaudRates()
@@ -218,11 +218,11 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
         }
 
-        private void OnInterLineTimeDelayChanged(object sender, TextChangedEventArgs e)
+        private void OnFileInterLineTimeDelayChanged(object sender, TextChangedEventArgs e)
         {
-            if (uint.TryParse(InterLineTimeDelayValueTextBox.Text, out uint val))
+            if (uint.TryParse(FileInterLineTimeDelayValueTextBox.Text, out uint val))
             {
-                _serial.InterLineTimeDelay = val;
+                _serial.FileInterLineTimeDelay = val;
                 Debug.WriteLine($"Inter-line Time Delay - {val}ms");
             }
         }
