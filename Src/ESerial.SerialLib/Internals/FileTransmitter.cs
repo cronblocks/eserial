@@ -38,7 +38,20 @@ namespace ESerial.SerialLib.Internals
             FileTransmissionStarted?.Invoke();
 
             int totalLines = GetTotalLinesInFile();
-            FileTransmissionPercentageUpdated.Invoke(0);
+            int currentLineNumber = 0;
+
+            foreach (string line in GetFileLines())
+            {
+                if (!_isRunning)
+                {
+                    break;
+                }
+
+                _portCommunicator.SendData(line);
+
+                currentLineNumber++;
+                FileTransmissionPercentageUpdated.Invoke((int)((currentLineNumber / (float)totalLines) * 100));
+            }
 
             _isRunning = false;
             _thread = null;
