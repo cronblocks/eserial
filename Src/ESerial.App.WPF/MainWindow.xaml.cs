@@ -163,19 +163,12 @@ namespace ESerial.App.WPF
 
         private void OnWindowClosed(object sender, EventArgs e)
         {
+            _serial.StopPortsDiscoveryService();
+            _serial.StopSerialPortTransactions();
+            
             try
             {
-                _serial.StopPortsDiscoveryService();
-                _serial.StopSerialPortTransactions();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Window Closing Error: {ex.Message}");
-            }
-
-            try
-            {
-                _dumpFileStream.Close();
+                _dumpFileStream?.Close();
             }
             catch (Exception ex)
             {
