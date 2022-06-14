@@ -29,9 +29,12 @@ namespace ESerial.SerialLib.Internals
 
         public void StartTransmission()
         {
+            if (!_isRunning)
+            {
             _isRunning = true;
             _thread = new Thread(TransmissionExecutor);
             _thread.Start();
+        }
         }
 
         private void TransmissionExecutor(object _)
