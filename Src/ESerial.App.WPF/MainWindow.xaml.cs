@@ -303,7 +303,7 @@ namespace ESerial.App.WPF
 
         }
 
-        private void OnSendButtonClicked(object sender, RoutedEventArgs e)
+        private void OnTransmitButtonClicked(object sender, RoutedEventArgs e)
         {
 
         }
