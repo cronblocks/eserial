@@ -242,6 +242,16 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
         }
 
+        private void OnTransmitTextBoxKeyPressed(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+
+        }
+
+        private void OnSendButtonClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void OnStartButtonClicked(object sender, RoutedEventArgs e)
         {
             if ((string)StartButton.Content == _startButtonStartTitle)
