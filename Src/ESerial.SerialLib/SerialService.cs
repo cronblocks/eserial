@@ -25,6 +25,7 @@ namespace ESerial.SerialLib
 
         private PortsDiscoverer _portDiscoverer;
         private PortCommunicator _portCommunicator;
+        private FileTransmitter _fileTransmitter;
 
         #region Service Initialization & Control
         public SerialService()
