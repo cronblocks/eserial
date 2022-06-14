@@ -168,7 +168,11 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
         }
 
-        private void OnStartButtonClick(object sender, RoutedEventArgs e)
+        private void OnClearButtonClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void OnStartButtonClicked(object sender, RoutedEventArgs e)
         {
             try
@@ -220,6 +224,7 @@ namespace ESerial.App.WPF
                 () =>
                 {
                     MainTextBox.Text = MainTextBox.Text + data;
+                    MainTextBox.ScrollToEnd();
                 });
         }
 
