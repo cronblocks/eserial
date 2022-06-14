@@ -30,6 +30,8 @@ namespace ESerial.App.WPF
 
             InitializeComponent();
 
+            _startButtonStartTitle = (string)StartButton.Content;
+
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
             _serial.PortDisconnected += OnPortDisconnected;
