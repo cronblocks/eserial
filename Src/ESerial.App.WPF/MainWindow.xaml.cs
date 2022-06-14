@@ -2,6 +2,7 @@
 using ESerial.SerialLib.Types;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -23,6 +24,8 @@ namespace ESerial.App.WPF
 
         private string _startButtonStartTitle = "";
         private string _startButtonStopTitle = "Stop";
+        private string _dumpFilename =
+            $"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
 
         public MainWindow()
         {
@@ -31,6 +34,8 @@ namespace ESerial.App.WPF
             InitializeComponent();
 
             _startButtonStartTitle = (string)StartButton.Content;
+
+            SaveToFileName.Text = $"Saving to: {_dumpFilename}";
 
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
