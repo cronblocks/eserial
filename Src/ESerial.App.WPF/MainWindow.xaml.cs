@@ -1,5 +1,6 @@
 ﻿using ESerial.SerialLib;
 using ESerial.SerialLib.Types;
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
