@@ -43,6 +43,9 @@ namespace ESerial.App.WPF
             _serial.PortDisconnected += OnPortDisconnected;
             _serial.DataReceived += OnSerialPortDataReceived;
             _serial.DataSent += OnSerialPortDataSent;
+            _serial.FileTransmissionStarted += OnFileTransmissionStarted;
+            _serial.FileTransmissionFinished += OnFileTransmissionFinished;
+            _serial.FileTransmissionPercentageUpdated += OnFileTransmissionPercentageUpdated;
 
             SetUiLineEndingOption();
             SetUiInterLineTimeDelay();
@@ -407,6 +410,21 @@ namespace ESerial.App.WPF
 
         private void OnSerialPortDataSent(string data)
         {
+        }
+
+        private void OnFileTransmissionStarted()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnFileTransmissionFinished()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnFileTransmissionPercentageUpdated(int percentage)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
