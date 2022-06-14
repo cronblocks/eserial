@@ -241,7 +241,7 @@ namespace ESerial.App.WPF
 
         private void OnPortDisconnected()
         {
-
+            Debug.WriteLine("Port Disconnected");
         }
 
         private void OnSerialPortDataReceived(string data)

@@ -78,6 +78,16 @@ namespace ESerial.SerialLib.Internals
                     }
                 }
                 catch (TimeoutException) { }
+                catch (Exception)
+                {
+                    PortDisconnected?.Invoke();
+                    try
+                    {
+                        _serialPort.Close();
+                    }
+                    catch (Exception) { }
+                    _isRunning = false;
+                }
             }
         }
     }

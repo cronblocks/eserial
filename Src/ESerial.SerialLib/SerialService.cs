@@ -82,6 +82,7 @@ namespace ESerial.SerialLib
         private void OnPortDisconnected()
         {
             PortDisconnected?.Invoke();
+            _portCommunicator = null;
         }
 
         private void OnDataSent(string data)
