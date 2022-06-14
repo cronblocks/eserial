@@ -33,8 +33,6 @@ namespace ESerial.SerialLib.Internals
 
                 _thread = new Thread(PortDataReceiver);
                 _thread.Start();
-
-                _isRunning = true;
             }
         }
 
