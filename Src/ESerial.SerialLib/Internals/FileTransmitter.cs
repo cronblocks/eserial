@@ -39,6 +39,8 @@ namespace ESerial.SerialLib.Internals
 
             int totalLines = GetTotalLinesInFile();
             int currentLineNumber = 0;
+            int currentPercentage = 0;
+            int lastPercentage = 0;
 
             foreach (string line in GetFileLines())
             {
@@ -50,7 +52,12 @@ namespace ESerial.SerialLib.Internals
                 _portCommunicator.SendData(line);
 
                 currentLineNumber++;
-                FileTransmissionPercentageUpdated.Invoke((int)((currentLineNumber / (float)totalLines) * 100));
+                currentPercentage = (int)((currentLineNumber / (float)totalLines) * 100);
+                if (currentPercentage != lastPercentage)
+                {
+                    FileTransmissionPercentageUpdated.Invoke(currentPercentage);
+                }
+                lastPercentage = currentPercentage;
             }
 
             _isRunning = false;
