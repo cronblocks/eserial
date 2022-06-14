@@ -325,6 +325,7 @@ namespace ESerial.App.WPF
             if (openFileDialog.ShowDialog() == true)
             {
                 Debug.WriteLine($"Transmitting file: {openFileDialog.FileName}");
+                _serial.TransmitFile(openFileDialog.FileName);
             }
         }
 

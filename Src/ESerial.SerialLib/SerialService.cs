@@ -110,6 +110,11 @@ namespace ESerial.SerialLib
             }
         }
 
+        public void TransmitFile(string filename)
+        {
+
+        }
+
         private void OnPortDisconnected()
         {
             PortDisconnected?.Invoke();
