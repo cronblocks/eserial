@@ -26,8 +26,8 @@ namespace ESerial.App.WPF
 
         private string _startButtonStartTitle = "";
         private string _startButtonStopTitle = "Stop";
-        private string _dumpFilename =
-            $"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
+        private string _dumpDirectoryName = $"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}ESerial-Dump{Path.DirectorySeparatorChar}";
+        private string _dumpFilename = $"ESerial-{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
 
         public MainWindow()
         {
@@ -37,6 +37,17 @@ namespace ESerial.App.WPF
 
             _startButtonStartTitle = (string)StartButton.Content;
 
+            try
+            {
+                if (!Directory.Exists(_dumpDirectoryName))
+                {
+                    Directory.CreateDirectory(_dumpDirectoryName);
+                }
+
+                _dumpFilename = _dumpDirectoryName + _dumpFilename;
+            }
+            catch (Exception) { }
+            
             SaveToFileName.Text = $"Saving to: {_dumpFilename}";
             _dumpFileStream = new FileStream(_dumpFilename, FileMode.OpenOrCreate);
 
