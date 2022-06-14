@@ -79,7 +79,7 @@ namespace ESerial.SerialLib
         }
         #endregion
 
-        #region Data Transmission Dispatchers
+        #region Data Transmissions & Dispatchers
         public void SendTextLineWithEndings(string line)
         {
             if (line != null && _portCommunicator != null)
