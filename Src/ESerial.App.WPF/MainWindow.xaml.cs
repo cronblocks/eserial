@@ -414,17 +414,17 @@ namespace ESerial.App.WPF
 
         private void OnFileTransmissionStarted()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void OnFileTransmissionFinished()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void OnFileTransmissionPercentageUpdated(int percentage)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine($"Percentage Completed: {percentage}");
         }
         #endregion
     }
