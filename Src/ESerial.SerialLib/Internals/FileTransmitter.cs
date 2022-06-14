@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
 
 namespace ESerial.SerialLib.Internals
@@ -16,15 +15,12 @@ namespace ESerial.SerialLib.Internals
         private readonly PortCommunicator _portCommunicator;
 
         private volatile bool _isRunning = false;
-        private FileStream _fileStream;
         private Thread _thread;
 
         public FileTransmitter(string filename, PortCommunicator portCommunicator)
         {
             _filename = filename;
             _portCommunicator = portCommunicator;
-
-            _fileStream = new FileStream(_filename, FileMode.Open, FileAccess.Read);
         }
 
         public void StartTransmission()
@@ -41,11 +37,36 @@ namespace ESerial.SerialLib.Internals
         {
             FileTransmissionStarted?.Invoke();
 
+            int totalLines = GetTotalLinesInFile();
             FileTransmissionPercentageUpdated.Invoke(0);
 
             _isRunning = false;
             _thread = null;
             FileTransmissionFinished?.Invoke();
+        }
+
+        private int GetTotalLinesInFile()
+        {
+            int totalLines = 0;
+
+            foreach (string _ in GetFileLines())
+            {
+                totalLines++;
+            }
+
+            return totalLines;
+        }
+
+        private IEnumerable<string> GetFileLines()
+        {
+            using (StreamReader sr = new StreamReader(_filename))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    yield return line;
+                }
+            }
         }
 
         public void QuitTransmission()

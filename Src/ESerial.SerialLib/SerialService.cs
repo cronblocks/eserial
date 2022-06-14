@@ -116,12 +116,19 @@ namespace ESerial.SerialLib
 
         public void TransmitFile(string filename)
         {
-
+            FileTransmissionStarted?.Invoke();
+            FileTransmissionFinished?.Invoke();
         }
 
         private void OnPortDisconnected()
         {
             PortDisconnected?.Invoke();
+
+            if (_fileTransmitter != null)
+            {
+                _fileTransmitter.QuitTransmission();
+            }
+
             _portCommunicator = null;
         }
 
