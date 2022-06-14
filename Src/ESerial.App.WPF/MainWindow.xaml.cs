@@ -225,12 +225,19 @@ namespace ESerial.App.WPF
 
         private void OnSerialPortDataReceived(string data)
         {
-            MainTextBox.Dispatcher.Invoke(
+            try
+            {
+                MainTextBox?.Dispatcher.Invoke(
                 () =>
                 {
                     MainTextBox.Text = MainTextBox.Text + data;
                     MainTextBox.ScrollToEnd();
                 });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"GUI Update Error: {ex.Message}");
+            }
         }
 
         private void OnSerialPortDataSent(string data)
