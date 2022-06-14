@@ -116,8 +116,11 @@ namespace ESerial.SerialLib
 
         public void TransmitFile(string filename)
         {
-            FileTransmissionStarted?.Invoke();
-            FileTransmissionFinished?.Invoke();
+            _fileTransmitter = new FileTransmitter(filename, this);
+            _fileTransmitter.FileTransmissionStarted += OnFileTransmissionStarted;
+            _fileTransmitter.FileTransmissionFinished += OnFileTransmissionFinished;
+            _fileTransmitter.FileTransmissionPercentageUpdated += OnFileTransmissionPercentageUpdated;
+            _fileTransmitter.StartTransmission();
         }
 
         private void OnPortDisconnected()
@@ -140,6 +143,21 @@ namespace ESerial.SerialLib
         private void OnDataReceived(string data)
         {
             DataReceived?.Invoke(data);
+        }
+
+        private void OnFileTransmissionStarted()
+        {
+            FileTransmissionStarted?.Invoke();
+        }
+
+        private void OnFileTransmissionFinished()
+        {
+            FileTransmissionFinished?.Invoke();
+        }
+
+        private void OnFileTransmissionPercentageUpdated(int percentage)
+        {
+            FileTransmissionPercentageUpdated?.Invoke(percentage);
         }
         #endregion
     }
