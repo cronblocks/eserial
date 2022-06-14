@@ -28,6 +28,11 @@ namespace ESerial.SerialLib.Internals
 
         }
 
+        private void TransmissionExecutor(object _)
+        {
+
+        }
+
         public void QuitTransmission()
         {
 
