@@ -17,7 +17,7 @@ namespace ESerial.SerialLib
         public string SerialPort { get; set; }
         public LineEnding LineEnding { get; set; } = LineEnding.None;
         public BaudRate BaudRate { get; set; } = BaudRate._115200;
-        public uint FileInterLineTimeDelay { get; set; } = 1000; // Time delay in milliseconds
+        public uint FileInterLineTimeDelay { get; set; } = 200; // Time delay in milliseconds
 
         private PortsDiscoverer _portDiscoverer;
         private PortCommunicator _portCommunicator;
