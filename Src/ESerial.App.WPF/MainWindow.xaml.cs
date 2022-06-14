@@ -106,8 +106,45 @@ namespace ESerial.App.WPF
             switch (guiState)
             {
                 case GuiState.TransmissionStopped:
+                    MainAppWindow.Dispatcher.Invoke(
+                        () =>
+                        {
+                            SerialPortComboBox.IsEnabled = true;
+                            BaudRateComboBox.IsEnabled = true;
+                            StartButton.Content = _startButtonStartTitle;
+
+                            TransmitTextBox.IsEnabled = false;
+                            TransmitButton.IsEnabled = false;
+                            TransmitFileButton.IsEnabled = false;
+                        });
+                    break;
+
                 case GuiState.TransmissionStartedNormal:
+                    MainAppWindow.Dispatcher.Invoke(
+                        () =>
+                        {
+                            SerialPortComboBox.IsEnabled = false;
+                            BaudRateComboBox.IsEnabled = false;
+                            StartButton.Content = _startButtonStopTitle;
+
+                            TransmitTextBox.IsEnabled = true;
+                            TransmitButton.IsEnabled = true;
+                            TransmitFileButton.IsEnabled = true;
+                        });
+                    break;
+
                 case GuiState.TransmissionStartedFile:
+                    MainAppWindow.Dispatcher.Invoke(
+                        () =>
+                        {
+                            SerialPortComboBox.IsEnabled = false;
+                            BaudRateComboBox.IsEnabled = false;
+                            StartButton.Content = _startButtonStopTitle;
+
+                            TransmitTextBox.IsEnabled = false;
+                            TransmitButton.IsEnabled = false;
+                            TransmitFileButton.IsEnabled = false;
+                        });
                     break;
             }
         }
