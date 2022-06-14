@@ -168,11 +168,6 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
         }
 
-        private void OnClearButtonClicked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void OnStartButtonClicked(object sender, RoutedEventArgs e)
         {
             try
@@ -184,6 +179,16 @@ namespace ESerial.App.WPF
                 MessageBox.Show(ex.Message, "Error");
 
             }
+        }
+
+        private void OnClearButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MainTextBox.Dispatcher.Invoke(
+                () =>
+                {
+                    MainTextBox.Text = "";
+                    MainTextBox.ScrollToEnd();
+                });
         }
         #endregion
 
