@@ -99,9 +99,24 @@ namespace ESerial.App.WPF
         #endregion
 
         #region GUI Events Handling
-        private void OnGuiLoaded(object sender, RoutedEventArgs e)
+        private void OnWindowLoaded(object sender, RoutedEventArgs e)
         {
             _serial.StartPortsDiscoveryService();
+        }
+
+        private void OnWindowClosed(object sender, EventArgs e)
+        {
+            try
+            {
+                _serial.StopPortsDiscoveryService();
+                _serial.StopSerialPortTransactions();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Window Closing Error: {ex.Message}");
+            }
+
+            Application.Current.Shutdown();
         }
 
         private void OnSerialPortSelectionChanged(object sender, SelectionChangedEventArgs e)
