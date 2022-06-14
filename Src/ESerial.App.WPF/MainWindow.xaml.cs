@@ -175,7 +175,7 @@ namespace ESerial.App.WPF
                 Debug.WriteLine($"File Closing Error: {ex.Message}");
             }
 
-            Application.Current.Shutdown();
+            Environment.Exit(0);
         }
 
         private void OnSerialPortSelectionChanged(object sender, SelectionChangedEventArgs e)
