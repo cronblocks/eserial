@@ -302,16 +302,11 @@ namespace ESerial.App.WPF
         {
             if (e.Key == System.Windows.Input.Key.Enter)
             {
-                _ExecuteTransmitText();
+                OnTransmitButtonClicked(sender, new RoutedEventArgs());
             }
         }
 
         private void OnTransmitButtonClicked(object sender, RoutedEventArgs e)
-        {
-            _ExecuteTransmitText();
-        }
-
-        private void _ExecuteTransmitText()
         {
             _serial.SendTextLineWithEndings(TransmitTextBox.Text);
             TransmitTextBox.Text = "";
