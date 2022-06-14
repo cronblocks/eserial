@@ -16,7 +16,7 @@ namespace ESerial.SerialLib.Internals
         public event Action<string> DataSent;
         public event Action<string> DataReceived;
 
-        private bool _isRunning = false;
+        private volatile bool _isRunning = false;
         private SerialPort _serialPort = null;
         private Thread _thread = null;
 
@@ -28,6 +28,8 @@ namespace ESerial.SerialLib.Internals
                 _serialPort.ReadTimeout = READ_TIMEOUT_MILLISECONDS;
                 _serialPort.WriteTimeout = WRITE_TIMEOUT_MILLISECONDS;
                 _serialPort.Open();
+
+                _isRunning = true;
 
                 _thread = new Thread(PortDataReceiver);
                 _thread.Start();
