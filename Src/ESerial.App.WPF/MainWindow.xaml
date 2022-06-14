@@ -68,7 +68,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="TransmitTextBox" TextWrapping="NoWrap" Text="" HorizontalContentAlignment="Left" FontFamily="Lucida Console" VerticalContentAlignment="Stretch" BorderBrush="#661D14D7" Foreground="#FF737C09" Margin="0,0,3,3" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" IsEnabled="False" KeyDown="OnTransmitTextBoxKeyPressed"/>
                 <Button x:Name="TransmitButton" Content="Send" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,0,0,3" FontSize="14" IsEnabled="False" Click="OnTransmitButtonClicked"/>
-                <Button x:Name="TransmitFileButton" Content="Send File" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,0,0,3" FontSize="14" IsEnabled="False"/>
+                <Button x:Name="TransmitFileButton" Content="Send File" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,0,0,3" FontSize="14" IsEnabled="False" Click="OnTransmitFileButtonClicked"/>
             </Grid>
             <TextBox x:Name="MainTextBox" TextWrapping="NoWrap" FontFamily="Lucida Console" Foreground="#FFC0C511" Background="#FF012456" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top" BorderBrush="{Binding ForegroundProperty, ElementName=MainTextBox, Mode=OneWay}" FontSize="14" IsReadOnly="True" Margin="0,3,0,0" Grid.Row="1" BorderThickness="1,1,1,1" Padding="10,10,10,10" IsTabStop="False" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
             <StackPanel x:Name="SaveToFilePanel" Orientation="Horizontal" Grid.Row="2"

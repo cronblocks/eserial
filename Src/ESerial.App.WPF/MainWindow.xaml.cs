@@ -300,10 +300,23 @@ namespace ESerial.App.WPF
 
         private void OnTransmitTextBoxKeyPressed(object sender, System.Windows.Input.KeyEventArgs e)
         {
-
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                _ExecuteTransmitText();
+            }
         }
 
         private void OnTransmitButtonClicked(object sender, RoutedEventArgs e)
+        {
+            _ExecuteTransmitText();
+        }
+
+        private void _ExecuteTransmitText()
+        {
+
+        }
+
+        private void OnTransmitFileButtonClicked(object sender, RoutedEventArgs e)
         {
 
         }
