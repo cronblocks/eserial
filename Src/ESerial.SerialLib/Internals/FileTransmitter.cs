@@ -36,7 +36,10 @@ namespace ESerial.SerialLib.Internals
 
         private void TransmissionExecutor(object _)
         {
+            FileTransmissionStarted?.Invoke();
 
+            FileTransmissionPercentageUpdated.Invoke(0);
+            FileTransmissionFinished?.Invoke();
         }
 
         public void QuitTransmission()
