@@ -8,6 +8,10 @@ namespace ESerial.SerialLib.Internals
 {
     internal class FileTransmitter
     {
+        public event Action FileTransmissionStarted;
+        public event Action FileTransmissionFinished;
+        public event Action<int> FileTransmissionPercentageUpdated;
+
         private readonly string _filename;
         private readonly PortCommunicator _portCommunicator;
 
