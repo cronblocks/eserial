@@ -33,7 +33,6 @@ namespace ESerial.App.WPF
 
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
-            _serial.PortConnected += OnPortConnected;
             _serial.PortDisconnected += OnPortDisconnected;
             _serial.DataReceived += OnSerialPortDataReceived;
             _serial.DataSent += OnSerialPortDataSent;
@@ -238,11 +237,6 @@ namespace ESerial.App.WPF
                         SerialPortComboBox.SelectedIndex = -1;
                     }
                 });
-        }
-
-        private void OnPortConnected()
-        {
-
         }
 
         private void OnPortDisconnected()
