@@ -39,7 +39,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="InterLineTimeDelayValuePanel"
                 FlowDirection="LeftToRight" ScrollViewer.VerticalScrollBarVisibility="Disabled" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Center" >
-                <TextBlock x:Name="InterLineTimeDelayHeading" Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Inter-line Time Delay:" VerticalAlignment="Center" FontSize="12" Margin="0,0,5,0"/>
+                <TextBlock x:Name="InterLineTimeDelayHeading" Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="File Inter-line Time Delay:" VerticalAlignment="Center" FontSize="12" Margin="0,0,5,0"/>
                 <TextBox x:Name="InterLineTimeDelayValueTextBox" TextWrapping="Wrap" FontSize="12" Width="75" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="3,2,3,2" HorizontalContentAlignment="Left" TextChanged="OnInterLineTimeDelayChanged" />
                 <TextBlock x:Name="InterLineTimeDelayUnit" Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ms" VerticalAlignment="Center" FontSize="12" Margin="5,0,0,0"/>
             </StackPanel>
