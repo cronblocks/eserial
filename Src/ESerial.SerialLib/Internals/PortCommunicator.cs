@@ -44,7 +44,7 @@ namespace ESerial.SerialLib.Internals
             {
                 _isRunning = false;
 
-                _thread.Join();
+                _thread.Join(500);
                 _thread = null;
                 
                 if (_serialPort.IsOpen)
