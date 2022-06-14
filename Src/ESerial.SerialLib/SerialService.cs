@@ -14,6 +14,9 @@ namespace ESerial.SerialLib
         public event Action PortDisconnected;
         public event Action<string> DataSent;
         public event Action<string> DataReceived;
+        public event Action FileTransmissionStarted;
+        public event Action FileTransmissionFinished;
+        public event Action<int> FileTransmissionPercentageUpdated;
 
         public string SerialPort { get; set; }
         public LineEnding LineEnding { get; set; } = LineEnding.None;
