@@ -137,7 +137,7 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
         }
 
-        private void OnInterLineTimeDelayChanging(TextBox sender, EventArgs args)
+        private void OnInterLineTimeDelayChanged(object sender, TextChangedEventArgs e)
         {
             if (uint.TryParse(InterLineTimeDelayValueTextBox.Text, out uint val))
             {
