@@ -298,7 +298,7 @@ namespace ESerial.App.WPF
             }
         }
 
-        private void OnClearButtonClicked(object sender, RoutedEventArgs e)
+        private void OnClearDisplayButtonClicked(object sender, RoutedEventArgs e)
         {
             MainTextBox.Dispatcher.Invoke(
                 () =>

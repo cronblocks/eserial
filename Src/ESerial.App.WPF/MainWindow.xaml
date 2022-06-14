@@ -73,7 +73,7 @@
             <TextBox x:Name="MainTextBox" TextWrapping="NoWrap" Text="" FontFamily="Lucida Console" Foreground="#FF787C1A" Background="#FF012456" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Top" BorderBrush="{Binding ForegroundProperty, ElementName=MainTextBox, Mode=OneWay}" FontSize="14" IsReadOnly="True" Margin="0,3,0,0" Grid.Row="1" BorderThickness="1,1,1,1" Padding="10,10,10,10" IsTabStop="False" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
             <StackPanel x:Name="SaveToFilePanel" Orientation="Horizontal" Grid.Row="2"
                         Background="{Binding Background, ElementName=MainTextBox}">
-                <Button x:Name="ClearButton" Content="Clear" Foreground="{Binding Foreground, ElementName=MainTextBox}" Margin="5,0,5,0" BorderBrush="#7FFFFFFF" VerticalAlignment="Center" Padding="8,2,8,3" Background="#7F0E0000" FontSize="12" HorizontalAlignment="Right" Click="OnClearButtonClicked"/>
+                <Button x:Name="ClearDisplayButton" Content="Clear Display" Foreground="{Binding Foreground, ElementName=MainTextBox}" Margin="5,0,5,0" BorderBrush="#7FFFFFFF" VerticalAlignment="Center" Padding="8,2,8,3" Background="#7F0E0000" FontSize="12" HorizontalAlignment="Right" Click="OnClearDisplayButtonClicked"/>
                 <TextBlock x:Name="SaveToFileName" TextWrapping="Wrap" Text="..." Foreground="{Binding Foreground, ElementName=MainTextBox}" FontSize="12" Margin="15,3,3,3" VerticalAlignment="Center" />
             </StackPanel>
         </Grid>
