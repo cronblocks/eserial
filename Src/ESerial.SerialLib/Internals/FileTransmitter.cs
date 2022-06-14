@@ -31,10 +31,10 @@ namespace ESerial.SerialLib.Internals
         {
             if (!_isRunning)
             {
-            _isRunning = true;
-            _thread = new Thread(TransmissionExecutor);
-            _thread.Start();
-        }
+                _isRunning = true;
+                _thread = new Thread(TransmissionExecutor);
+                _thread.Start();
+            }
         }
 
         private void TransmissionExecutor(object _)
@@ -47,7 +47,12 @@ namespace ESerial.SerialLib.Internals
 
         public void QuitTransmission()
         {
-
+            if (_isRunning)
+            {
+                _isRunning = false;
+                _thread.Join(500);
+                _thread = null;
+            }
         }
     }
 }
