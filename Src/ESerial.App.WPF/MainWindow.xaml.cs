@@ -315,7 +315,17 @@ namespace ESerial.App.WPF
 
         private void OnTransmitFileButtonClicked(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Open text file for transmission";
+            openFileDialog.FileName = "";
+            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            openFileDialog.DefaultExt = ".txt";
+            openFileDialog.Filter = "Text documents (.txt)|*.txt";
 
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Debug.WriteLine($"Transmitting file: {openFileDialog.FileName}");
+            }
         }
 
         private void OnClearDisplayButtonClicked(object sender, RoutedEventArgs e)
