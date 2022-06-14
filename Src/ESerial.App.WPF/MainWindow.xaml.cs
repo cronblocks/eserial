@@ -21,6 +21,9 @@ namespace ESerial.App.WPF
     {
         private SerialService _serial;
 
+        private string _startButtonStartTitle = "";
+        private string _startButtonStopTitle = "Stop";
+
         public MainWindow()
         {
             _serial = new SerialService();
