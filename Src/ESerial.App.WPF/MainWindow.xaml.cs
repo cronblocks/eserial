@@ -27,7 +27,7 @@ namespace ESerial.App.WPF
         private string _startButtonStartTitle = "";
         private string _startButtonStopTitle = "Stop";
         private string _dumpDirectoryName = $"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}ESerial-Dump{Path.DirectorySeparatorChar}";
-        private string _dumpFilename = $"ESerial-{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
+        private string _dumpFilename;
 
         public MainWindow()
         {
@@ -36,20 +36,6 @@ namespace ESerial.App.WPF
             InitializeComponent();
 
             _startButtonStartTitle = (string)StartButton.Content;
-
-            try
-            {
-                if (!Directory.Exists(_dumpDirectoryName))
-                {
-                    Directory.CreateDirectory(_dumpDirectoryName);
-                }
-
-                _dumpFilename = _dumpDirectoryName + _dumpFilename;
-            }
-            catch (Exception) { }
-            
-            SaveToFileName.Text = $"Saving to: {_dumpFilename}";
-            _dumpFileStream = new FileStream(_dumpFilename, FileMode.OpenOrCreate);
 
             _serial.NewPortFound += OnNewSerialPortFound;
             _serial.PortRemoved += OnSerialPortRemoved;
@@ -269,6 +255,20 @@ namespace ESerial.App.WPF
             {
                 try
                 {
+                    if (!Directory.Exists(_dumpDirectoryName))
+                    {
+                        Directory.CreateDirectory(_dumpDirectoryName);
+                    }
+
+                    _dumpFilename = _dumpDirectoryName + $"ESerial-{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
+                }
+                catch (Exception) { }
+
+                SaveToFileName.Text = $"Saving to: {_dumpFilename}";
+                _dumpFileStream = new FileStream(_dumpFilename, FileMode.OpenOrCreate);
+
+                try
+                {
                     _serial.StartSerialPortTransactions();
                     SetGuiState(GuiState.TransmissionStartedNormal);
                 }
@@ -288,6 +288,17 @@ namespace ESerial.App.WPF
                 {
                     MessageBox.Show(ex.Message, "Error");
                 }
+
+                try
+                {
+                    _dumpFileStream.Close();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"File Closing Error: {ex.Message}");
+                }
+
+                SaveToFileName.Text = $"Saved to: {_dumpFilename}";
             }
         }
 
