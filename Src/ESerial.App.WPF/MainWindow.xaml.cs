@@ -9,8 +9,9 @@ namespace ESerial.App.WPF
 {
     internal enum GuiState
     {
-        TransmissionStarted,
-        TransmissionStopped
+        TransmissionStopped,
+        TransmissionStartedNormal,
+        TransmissionStartedFile,
     }
 
     /// <summary>
