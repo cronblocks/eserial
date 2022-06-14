@@ -82,7 +82,32 @@ namespace ESerial.SerialLib
         #region Data Transmission Dispatchers
         private void SendTextLineWithEndings(string line)
         {
+            if (line != null && _portCommunicator != null)
+            {
+                _portCommunicator.SendData(line);
 
+                switch (LineEnding)
+                {
+                    case LineEnding.None:
+                        Debug.WriteLine($"Sending {line}");
+                        break;
+
+                    case LineEnding.CR:
+                        Debug.WriteLine($"Sending {line}\\r");
+                        _portCommunicator.SendData("\r");
+                        break;
+
+                    case LineEnding.LF:
+                        Debug.WriteLine($"Sending {line}\\n");
+                        _portCommunicator.SendData("\n");
+                        break;
+
+                    case LineEnding.CRLF:
+                        Debug.WriteLine($"Sending {line}\\r\\n");
+                        _portCommunicator.SendData("\r\n");
+                        break;
+                }
+            }
         }
 
         private void OnPortDisconnected()
