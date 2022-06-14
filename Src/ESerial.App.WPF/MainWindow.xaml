@@ -66,7 +66,7 @@
                     <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="80"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="TransmitTextBox" TextWrapping="NoWrap" Text="" HorizontalContentAlignment="Left" FontFamily="Lucida Console" VerticalContentAlignment="Stretch" BorderBrush="#661D14D7" Foreground="#FF737C09" Margin="0,0,3,3" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" IsEnabled="False"/>
+                <TextBox x:Name="TransmitTextBox" TextWrapping="NoWrap" Text="" HorizontalContentAlignment="Left" FontFamily="Lucida Console" VerticalContentAlignment="Stretch" BorderBrush="#661D14D7" Foreground="#FF737C09" Margin="0,0,3,3" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" IsEnabled="False" KeyDown="OnTransmitTextBoxKeyPressed"/>
                 <Button x:Name="TransmitButton" Content="Send" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,0,0,3" FontSize="14" IsEnabled="False" Click="OnSendButtonClicked"/>
                 <Button x:Name="TransmitFileButton" Content="Send File" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,0,0,3" FontSize="14" IsEnabled="False"/>
             </Grid>
