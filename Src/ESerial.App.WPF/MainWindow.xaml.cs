@@ -169,6 +169,7 @@ namespace ESerial.App.WPF
         }
 
         private void OnStartButtonClick(object sender, RoutedEventArgs e)
+        private void OnStartButtonClicked(object sender, RoutedEventArgs e)
         {
             try
             {
