@@ -42,6 +42,9 @@ namespace ESerial.SerialLib.Internals
             FileTransmissionStarted?.Invoke();
 
             FileTransmissionPercentageUpdated.Invoke(0);
+
+            _isRunning = false;
+            _thread = null;
             FileTransmissionFinished?.Invoke();
         }
 
