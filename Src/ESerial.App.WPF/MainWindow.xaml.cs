@@ -414,12 +414,12 @@ namespace ESerial.App.WPF
 
         private void OnFileTransmissionStarted()
         {
-            
+            Debug.WriteLine($"File Transmission Started");
         }
 
         private void OnFileTransmissionFinished()
         {
-            
+            Debug.WriteLine($"File Transmission Finished");
         }
 
         private void OnFileTransmissionPercentageUpdated(int percentage)
