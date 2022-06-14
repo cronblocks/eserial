@@ -262,7 +262,10 @@ namespace ESerial.App.WPF
 
                     _dumpFilename = _dumpDirectoryName + $"ESerial-{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
                 }
-                catch (Exception) { }
+                catch (Exception)
+                {
+                    _dumpFilename = $"ESerial-{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
+                }
 
                 SaveToFileName.Text = $"Saving to: {_dumpFilename}";
                 _dumpFileStream = new FileStream(_dumpFilename, FileMode.OpenOrCreate);
