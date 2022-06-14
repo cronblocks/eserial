@@ -7,6 +7,12 @@ using System.Windows.Controls;
 
 namespace ESerial.App.WPF
 {
+    internal enum GuiState
+    {
+        TransmissionStarted,
+        TransmissionStopped
+    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
