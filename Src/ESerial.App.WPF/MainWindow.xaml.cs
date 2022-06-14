@@ -100,6 +100,19 @@ namespace ESerial.App.WPF
         }
         #endregion
 
+        #region GUI State During App Execution
+        private void SetGuiState(GuiState guiState)
+        {
+            switch (guiState)
+            {
+                case GuiState.TransmissionStopped:
+                case GuiState.TransmissionStartedNormal:
+                case GuiState.TransmissionStartedFile:
+                    break;
+            }
+        }
+        #endregion
+
         #region GUI Events Handling
         private void OnWindowLoaded(object sender, RoutedEventArgs e)
         {
@@ -190,6 +203,7 @@ namespace ESerial.App.WPF
             try
             {
                 _serial.StartSerialPortTransactions();
+                SetGuiState(GuiState.TransmissionStartedNormal);
             }
             catch (Exception ex)
             {
@@ -242,6 +256,7 @@ namespace ESerial.App.WPF
         private void OnPortDisconnected()
         {
             Debug.WriteLine("Port Disconnected");
+            SetGuiState(GuiState.TransmissionStopped);
         }
 
         private void OnSerialPortDataReceived(string data)
