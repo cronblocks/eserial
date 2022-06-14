@@ -79,6 +79,11 @@ namespace ESerial.SerialLib
         #endregion
 
         #region Data Transmission Dispatchers
+        private void SendTextLineWithEndings(string line)
+        {
+
+        }
+
         private void OnPortDisconnected()
         {
             PortDisconnected?.Invoke();
