@@ -122,7 +122,7 @@ namespace ESerial.App.WPF
         {
             if (BaudRateComboBox.SelectedIndex >= 0)
             {
-                string enumStr = $"_{BaudRateComboBox.Items[BaudRateComboBox.SelectedIndex].ToString()}";
+                string enumStr = $"_{BaudRateComboBox.Items[BaudRateComboBox.SelectedIndex]}";
 
                 if (Enum.IsDefined(typeof(BaudRate), enumStr))
                 {
