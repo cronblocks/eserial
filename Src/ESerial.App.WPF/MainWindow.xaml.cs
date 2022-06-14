@@ -313,7 +313,8 @@ namespace ESerial.App.WPF
 
         private void _ExecuteTransmitText()
         {
-
+            _serial.SendTextLineWithEndings(TransmitTextBox.Text);
+            TransmitTextBox.Text = "";
         }
 
         private void OnTransmitFileButtonClicked(object sender, RoutedEventArgs e)
