@@ -211,47 +211,6 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
         }
 
-        private void OnFileInterLineTimeDelayChanged(object sender, TextChangedEventArgs e)
-        {
-            if (uint.TryParse(FileInterLineTimeDelayValueTextBox.Text, out uint val))
-            {
-                _serial.FileInterLineTimeDelay = val;
-                Debug.WriteLine($"Inter-line Time Delay - {val}ms");
-            }
-        }
-
-        private void OnLineEndingChanged(object sender, RoutedEventArgs e)
-        {
-            if (LineEndingNone?.IsChecked == true)
-            {
-                _serial.LineEnding = LineEnding.None;
-            }
-            else if (LineEndingCR?.IsChecked == true)
-            {
-                _serial.LineEnding = LineEnding.CR;
-            }
-            else if (LineEndingLF?.IsChecked == true)
-            {
-                _serial.LineEnding = LineEnding.LF;
-            }
-            else if (LineEndingCRLF?.IsChecked == true)
-            {
-                _serial.LineEnding = LineEnding.CRLF;
-            }
-
-            Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
-        }
-
-        private void OnTransmitTextBoxKeyPressed(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-
-        }
-
-        private void OnSendButtonClicked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void OnStartButtonClicked(object sender, RoutedEventArgs e)
         {
             if ((string)StartButton.Content == _startButtonStartTitle)
@@ -306,6 +265,47 @@ namespace ESerial.App.WPF
 
                 SaveToFileName.Text = $"Saved to: {_dumpFilename}";
             }
+        }
+
+        private void OnFileInterLineTimeDelayChanged(object sender, TextChangedEventArgs e)
+        {
+            if (uint.TryParse(FileInterLineTimeDelayValueTextBox.Text, out uint val))
+            {
+                _serial.FileInterLineTimeDelay = val;
+                Debug.WriteLine($"Inter-line Time Delay - {val}ms");
+            }
+        }
+
+        private void OnLineEndingChanged(object sender, RoutedEventArgs e)
+        {
+            if (LineEndingNone?.IsChecked == true)
+            {
+                _serial.LineEnding = LineEnding.None;
+            }
+            else if (LineEndingCR?.IsChecked == true)
+            {
+                _serial.LineEnding = LineEnding.CR;
+            }
+            else if (LineEndingLF?.IsChecked == true)
+            {
+                _serial.LineEnding = LineEnding.LF;
+            }
+            else if (LineEndingCRLF?.IsChecked == true)
+            {
+                _serial.LineEnding = LineEnding.CRLF;
+            }
+
+            Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
+        }
+
+        private void OnTransmitTextBoxKeyPressed(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+
+        }
+
+        private void OnSendButtonClicked(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void OnClearDisplayButtonClicked(object sender, RoutedEventArgs e)
