@@ -12,15 +12,15 @@ namespace ESerial.SerialLib.Internals
         public event Action<int> FileTransmissionPercentageUpdated;
 
         private readonly string _filename;
-        private readonly PortCommunicator _portCommunicator;
+        private readonly SerialService _serialService;
 
         private volatile bool _isRunning = false;
         private Thread _thread;
 
-        public FileTransmitter(string filename, PortCommunicator portCommunicator)
+        public FileTransmitter(string filename, SerialService serialService)
         {
             _filename = filename;
-            _portCommunicator = portCommunicator;
+            _serialService = serialService;
         }
 
         public void StartTransmission()
@@ -49,7 +49,8 @@ namespace ESerial.SerialLib.Internals
                     break;
                 }
 
-                _portCommunicator.SendData(line);
+                _serialService.SendTextLineWithEndings(line);
+                Thread.Sleep((int)_serialService.FileInterLineTimeDelay);
 
                 currentLineNumber++;
                 currentPercentage = (int)((currentLineNumber / (float)totalLines) * 100);
