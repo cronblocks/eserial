@@ -125,6 +125,7 @@ namespace ESerial.App.WPF
                             TransmitTextBox.IsEnabled = false;
                             TransmitButton.IsEnabled = false;
                             TransmitFileButton.IsEnabled = false;
+                            TransmitFileProgressBar.Visibility = Visibility.Hidden;
                         });
                     break;
 
@@ -139,6 +140,7 @@ namespace ESerial.App.WPF
                             TransmitTextBox.IsEnabled = true;
                             TransmitButton.IsEnabled = true;
                             TransmitFileButton.IsEnabled = true;
+                            TransmitFileProgressBar.Visibility = Visibility.Hidden;
                         });
                     break;
 
@@ -153,6 +155,7 @@ namespace ESerial.App.WPF
                             TransmitTextBox.IsEnabled = false;
                             TransmitButton.IsEnabled = false;
                             TransmitFileButton.IsEnabled = false;
+                            TransmitFileProgressBar.Visibility = Visibility.Visible;
                         });
                     break;
             }
@@ -415,16 +418,23 @@ namespace ESerial.App.WPF
         private void OnFileTransmissionStarted()
         {
             Debug.WriteLine($"File Transmission Started");
+            SetGuiState(GuiState.TransmissionStartedFile);
         }
 
         private void OnFileTransmissionFinished()
         {
             Debug.WriteLine($"File Transmission Finished");
+            
+            MainAppWindow.Dispatcher.Invoke(() => { TransmitFileProgressBar.Value = 0; });
+            
+            SetGuiState(GuiState.TransmissionStartedNormal);
         }
 
         private void OnFileTransmissionPercentageUpdated(int percentage)
         {
             Debug.WriteLine($"Percentage Completed: {percentage}");
+
+            MainAppWindow.Dispatcher.Invoke(() => { TransmitFileProgressBar.Value = percentage; });
         }
         #endregion
     }
