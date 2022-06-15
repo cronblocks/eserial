@@ -16,3 +16,7 @@ An ***Easy*** and ***Simple*** Serial / COM Port Interface. *eserial* is just an
 * Selection of Stop Bits
 * Selection of Parity Bits
 
+
+## Missing Features
+
+* Selection of Data Bits - 8 bits are used by default
