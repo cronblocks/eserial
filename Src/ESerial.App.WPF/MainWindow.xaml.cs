@@ -201,6 +201,44 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
         }
 
+        private void OnParitySelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ParityComboBox.SelectedIndex >= 0)
+            {
+                string enumStr = (string)ParityComboBox.Items[ParityComboBox.SelectedIndex];
+
+                if (Enum.IsDefined(typeof(Parity), enumStr))
+                {
+                    Enum.TryParse(typeof(Parity), enumStr, out object? parity);
+                    if (parity != null)
+                    {
+                        _serial.Parity = (Parity)parity;
+                    }
+                }
+            }
+
+            Debug.WriteLine($"Parity - {_serial.Parity}");
+        }
+
+        private void OnStopBitsSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (StopBitsComboBox.SelectedIndex >= 0)
+            {
+                string enumStr = (string)StopBitsComboBox.Items[StopBitsComboBox.SelectedIndex];
+
+                if (Enum.IsDefined(typeof(StopBits), enumStr))
+                {
+                    Enum.TryParse(typeof(StopBits), enumStr, out object? stopBits);
+                    if (stopBits != null)
+                    {
+                        _serial.StopBits = (StopBits)stopBits;
+                    }
+                }
+            }
+
+            Debug.WriteLine($"Stop Bits - {_serial.StopBits}");
+        }
+
         private void OnStartButtonClicked(object sender, RoutedEventArgs e)
         {
             if ((string)StartButton.Content == _startButtonStartTitle)

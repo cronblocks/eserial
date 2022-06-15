@@ -22,10 +22,24 @@
         <!-- Left Options Bar -->
         <StackPanel x:Name="LeftOptionsPanel"
             Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="3,3,0,3" Background="#FFFDFAFF" >
+            
+            <!-- Serial Port -->
             <TextBlock x:Name="SerialPortHeading" TextWrapping="Wrap" Text="Serial Port" Margin="0,10,0,0" FontSize="12"/>
             <ComboBox x:Name="SerialPortComboBox" HorizontalAlignment="Stretch" Margin="0,5,0,0" FontSize="12" SelectionChanged="OnSerialPortSelectionChanged"/>
+
+            <!-- Baud-rate -->
             <TextBlock x:Name="BaudRateHeading" TextWrapping="Wrap" Text="Baud Rate" Margin="0,10,0,0" FontSize="12"/>
             <ComboBox x:Name="BaudRateComboBox" HorizontalAlignment="Stretch" Margin="0,5,0,0" FontSize="12" SelectionChanged="OnBaudRateSelectionChanged" />
+
+            <!-- Parity -->
+            <TextBlock x:Name="ParityHeading" TextWrapping="Wrap" Text="Parity" Margin="0,10,0,0" FontSize="12"/>
+            <ComboBox x:Name="ParityComboBox" HorizontalAlignment="Stretch" Margin="0,5,0,0" FontSize="12" SelectionChanged="OnParitySelectionChanged" />
+
+            <!-- Stop Bits -->
+            <TextBlock x:Name="StopBitsHeading" TextWrapping="Wrap" Text="Stop Bits" Margin="0,10,0,0" FontSize="12"/>
+            <ComboBox x:Name="StopBitsComboBox" HorizontalAlignment="Stretch" Margin="0,5,0,0" FontSize="12" SelectionChanged="OnStopBitsSelectionChanged" />
+
+            <!-- Start Button -->
             <Button x:Name="StartButton" Content="Start" Margin="0,20,0,0" HorizontalAlignment="Stretch" Click="OnStartButtonClicked"/>
         </StackPanel>
 
