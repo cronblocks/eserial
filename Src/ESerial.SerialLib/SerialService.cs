@@ -33,6 +33,8 @@ namespace ESerial.SerialLib
             _portDiscoverer = new PortsDiscoverer();
             _portDiscoverer.NewPortFound += OnNewPortFound;
             _portDiscoverer.PortRemoved += OnPortRemoved;
+
+            LoadSettings();
         }
 
         public void StartPortsDiscoveryService()
@@ -158,6 +160,18 @@ namespace ESerial.SerialLib
         private void OnFileTransmissionPercentageUpdated(int percentage)
         {
             FileTransmissionPercentageUpdated?.Invoke(percentage);
+        }
+        #endregion
+
+        #region Load & Save Settings
+        public void StoreSettings()
+        {
+
+        }
+
+        private void LoadSettings()
+        {
+
         }
         #endregion
     }

@@ -172,7 +172,8 @@ namespace ESerial.App.WPF
         {
             _serial.StopPortsDiscoveryService();
             _serial.StopSerialPortTransactions();
-            
+            _serial.SaveSettings();
+
             try
             {
                 _dumpFileStream?.Close();
