@@ -27,12 +27,45 @@ namespace ESerial.SerialLib.Internals
         {
             if (!_isRunning)
             {
+                System.IO.Ports.Parity ioParity = System.IO.Ports.Parity.None;
+                System.IO.Ports.StopBits ioStopBits = System.IO.Ports.StopBits.One;
+
+                switch (parity)
+                {
+                    case Types.Parity.None:
+                        ioParity = System.IO.Ports.Parity.None;
+                        break;
+
+                    case Types.Parity.Even:
+                        ioParity = System.IO.Ports.Parity.Even;
+                        break;
+
+                    case Types.Parity.Odd:
+                        ioParity = System.IO.Ports.Parity.Odd;
+                        break;
+                }
+
+                switch (stopBits)
+                {
+                    case Types.StopBits.One:
+                        ioStopBits = System.IO.Ports.StopBits.One;
+                        break;
+
+                    case Types.StopBits.Two:
+                        ioStopBits = System.IO.Ports.StopBits.Two;
+                        break;
+
+                    case Types.StopBits.OnePointFive:
+                        ioStopBits = System.IO.Ports.StopBits.OnePointFive;
+                        break;
+                }
+
                 _serialPort = new SerialPort(
                     portName,
                     (int)baudRate,
-                    System.IO.Ports.Parity.None,
+                    ioParity,
                     8,
-                    System.IO.Ports.StopBits.One);
+                    ioStopBits);
                 _serialPort.ReadTimeout = READ_TIMEOUT_MILLISECONDS;
                 _serialPort.WriteTimeout = WRITE_TIMEOUT_MILLISECONDS;
                 _serialPort.Open();
