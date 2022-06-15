@@ -172,7 +172,7 @@ namespace ESerial.App.WPF
         {
             _serial.StopPortsDiscoveryService();
             _serial.StopSerialPortTransactions();
-            _serial.SaveSettings();
+            _serial.StoreSettings();
 
             try
             {
