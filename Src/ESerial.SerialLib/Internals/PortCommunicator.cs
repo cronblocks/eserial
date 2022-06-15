@@ -22,6 +22,7 @@ namespace ESerial.SerialLib.Internals
         public void StartPortTransactions(
             string portName,
             Types.BaudRate baudRate,
+            Types.DataBits dataBits,
             Types.Parity parity,
             Types.StopBits stopBits)
         {
@@ -64,7 +65,7 @@ namespace ESerial.SerialLib.Internals
                                         portName,
                                         (int)baudRate,
                                         ioParity,
-                                        8,
+                                        (int)dataBits,
                                         ioStopBits);
 
                 _serialPort.ReadTimeout = READ_TIMEOUT_MILLISECONDS;
