@@ -31,6 +31,10 @@
             <TextBlock x:Name="BaudRateHeading" TextWrapping="Wrap" Text="Baud Rate" Margin="0,10,0,0" FontSize="12"/>
             <ComboBox x:Name="BaudRateComboBox" HorizontalAlignment="Stretch" Margin="0,5,0,0" FontSize="12" SelectionChanged="OnBaudRateSelectionChanged" />
 
+            <!-- Data Bits -->
+            <TextBlock x:Name="DataBitsHeading" TextWrapping="Wrap" Text="Data Bits" Margin="0,10,0,0" FontSize="12"/>
+            <ComboBox x:Name="DataBitsComboBox" HorizontalAlignment="Stretch" Margin="0,5,0,0" FontSize="12" SelectionChanged="OnDataBitsSelectionChanged" />
+            
             <!-- Parity -->
             <TextBlock x:Name="ParityHeading" TextWrapping="Wrap" Text="Parity" Margin="0,10,0,0" FontSize="12"/>
             <ComboBox x:Name="ParityComboBox" HorizontalAlignment="Stretch" Margin="0,5,0,0" FontSize="12" SelectionChanged="OnParitySelectionChanged" />
