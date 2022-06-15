@@ -22,6 +22,8 @@ namespace ESerial.SerialLib
         public string SerialPort { get; set; }
         public LineEnding LineEnding { get; set; } = LineEnding.None;
         public BaudRate BaudRate { get; set; } = BaudRate._115200;
+        public Parity Parity { get; set; } = Parity.None;
+        public StopBits StopBits { get; set; } = StopBits.One;
         public uint FileInterLineTimeDelay { get; set; } = 200; // Time delay in milliseconds
 
         private const string SETTINGS_FILENAME = "Settings.ini";
