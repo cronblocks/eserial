@@ -113,7 +113,20 @@ namespace ESerial.App.WPF
             int currentIndex = 0;
             foreach (StopBits stopBits in Enum.GetValues(typeof(StopBits)))
             {
-                StopBitsComboBox.Items.Add(stopBits.ToString());
+                switch (stopBits)
+                {
+                    case StopBits.One:
+                        StopBitsComboBox.Items.Add("1");
+                        break;
+
+                    case StopBits.Two:
+                        StopBitsComboBox.Items.Add("2");
+                        break;
+
+                    case StopBits.OnePointFive:
+                        StopBitsComboBox.Items.Add("1.5");
+                        break;
+                }
 
                 if (stopBits == _serial.StopBits)
                 {
@@ -289,6 +302,21 @@ namespace ESerial.App.WPF
             if (StopBitsComboBox.SelectedIndex >= 0)
             {
                 string enumStr = (string)StopBitsComboBox.Items[StopBitsComboBox.SelectedIndex];
+
+                switch (enumStr)
+                {
+                    case "1":
+                        enumStr = StopBits.One.ToString();
+                        break;
+
+                    case "2":
+                        enumStr = StopBits.Two.ToString();
+                        break;
+
+                    case "1.5":
+                        enumStr = StopBits.OnePointFive.ToString();
+                        break;
+                }
 
                 if (Enum.IsDefined(typeof(StopBits), enumStr))
                 {
