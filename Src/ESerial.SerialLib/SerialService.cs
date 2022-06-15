@@ -60,7 +60,7 @@ namespace ESerial.SerialLib
                 _portCommunicator.PortDisconnected += OnPortDisconnected;
                 _portCommunicator.DataSent += OnDataSent;
                 _portCommunicator.DataReceived += OnDataReceived;
-                _portCommunicator.StartPortTransactions(SerialPort, BaudRate);
+                _portCommunicator.StartPortTransactions(SerialPort, BaudRate, Parity, StopBits);
             }
             else
             {
