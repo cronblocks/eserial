@@ -222,6 +222,13 @@ namespace ESerial.SerialLib
                                         }
                                         break;
 
+                                    case "DataBits":
+                                        if (Enum.TryParse($"_{value}", out DataBits dataBits))
+                                        {
+                                            DataBits = dataBits;
+                                        }
+                                        break;
+
                                     case "Parity":
                                         if (Enum.TryParse(value, out Parity parity))
                                         {
