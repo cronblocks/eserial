@@ -185,7 +185,49 @@ namespace ESerial.SerialLib
         {
             if (File.Exists(SETTINGS_FILENAME))
             {
+                try
+                {
+                    using (StreamReader file = new StreamReader(SETTINGS_FILENAME))
+                    {
+                        string line;
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            line = line.Trim();
+                            
+                            string[] parts = line.Split('=');
+                            if (parts.Length == 2)
+                            {
+                                string name = parts[0].Trim();
+                                string value = parts[1].Trim();
 
+                                switch (name)
+                                {
+                                    case "LineEnding":
+                                        if (Enum.TryParse(value, out LineEnding lineEnding))
+                                        {
+                                            LineEnding = lineEnding;
+                                        }
+                                        break;
+
+                                    case "BaudRate":
+                                        if (Enum.TryParse($"_{value}", out BaudRate baudRate))
+                                        {
+                                            BaudRate = baudRate;
+                                        }
+                                        break;
+
+                                    case "FileInterLineTimeDelay":
+                                        if (uint.TryParse(value, out uint fileInterLineTimeDelay))
+                                        {
+                                            FileInterLineTimeDelay = fileInterLineTimeDelay;
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception) { }
             }
         }
         #endregion
