@@ -3,7 +3,7 @@
 An ***Easy*** and ***Simple*** Serial / COM Port Interface. *eserial* is just an easy and simple interface application for using Serial Port / UART.
 
 
-<div align="center"><img src="./Docs/WindowDisplay.png" width="60%" /></div>
+<div align="center"><img src="./Docs/WindowDisplay.png" width="90%" /></div>
 
 
 ## Features
