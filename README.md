@@ -1,4 +1,4 @@
-# eserial - *v2.0*
+# eserial - *v2.1*
 
 An ***Easy*** and ***Simple*** Serial / COM Port Interface. *eserial* is just an easy and simple interface application for using Serial Port / UART.
 
@@ -13,10 +13,11 @@ An ***Easy*** and ***Simple*** Serial / COM Port Interface. *eserial* is just an
 * Selectable Line-endings - CR, LF, CRLF, and None for not sending line separators after each line
 * File Transmissions - Text lines are read from any text file and transferred over selected Serial Port
 * Inter-line Transmission Gaps - Selectable time in **milliseconds** that is observed between line transmissions of selected file
+* Selection of Data Bits
 * Selection of Stop Bits
 * Selection of Parity Bits
 
 
 ## Missing Features
 
-* Selection of Data Bits - 8 bits are used by default
+* -- TBD --
