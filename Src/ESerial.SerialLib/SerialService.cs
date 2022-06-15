@@ -220,6 +220,20 @@ namespace ESerial.SerialLib
                                         }
                                         break;
 
+                                    case "Parity":
+                                        if (Enum.TryParse(value, out Parity parity))
+                                        {
+                                            Parity = parity;
+                                        }
+                                        break;
+
+                                    case "StopBits":
+                                        if (Enum.TryParse(value, out StopBits stopBits))
+                                        {
+                                            StopBits = stopBits;
+                                        }
+                                        break;
+
                                     case "FileInterLineTimeDelay":
                                         if (uint.TryParse(value, out uint fileInterLineTimeDelay))
                                         {
