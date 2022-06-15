@@ -67,14 +67,16 @@ namespace ESerial.SerialLib.Internals
 
         private void PortDataReceiver(object _)
         {
+            byte[] readBytes = new byte[100];
+
             while (_isRunning)
             {
                 try
                 {
-                    string receivedData = _serialPort.ReadLine();
-                    if (!string.IsNullOrEmpty(receivedData))
+                    int totalReceived = _serialPort.Read(readBytes, 0, readBytes.Length);
+                    if (totalReceived != 0)
                     {
-                        DataReceived?.Invoke(receivedData);
+                        DataReceived?.Invoke(Encoding.UTF8.GetString(readBytes, 0, totalReceived));
                     }
                 }
                 catch (TimeoutException) { }
