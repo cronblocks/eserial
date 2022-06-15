@@ -55,35 +55,17 @@ namespace ESerial.App.WPF
         #region GUI Initialization
         private void SetUiLineEndingOption()
         {
-            switch (_serial.LineEnding)
+            int currentIndex = 0;
+            foreach (LineEnding lineEnding in Enum.GetValues(typeof(LineEnding)))
             {
-                case LineEnding.None:
-                    LineEndingNone.IsChecked = true;
-                    LineEndingCR.IsChecked = false;
-                    LineEndingLF.IsChecked = false;
-                    LineEndingCRLF.IsChecked = false;
-                    break;
+                LineEndingComboBox.Items.Add(lineEnding.ToString());
 
-                case LineEnding.CR:
-                    LineEndingNone.IsChecked = false;
-                    LineEndingCR.IsChecked = true;
-                    LineEndingLF.IsChecked = false;
-                    LineEndingCRLF.IsChecked = false;
-                    break;
+                if (lineEnding == _serial.LineEnding)
+                {
+                    LineEndingComboBox.SelectedIndex = currentIndex;
+                }
 
-                case LineEnding.LF:
-                    LineEndingNone.IsChecked = false;
-                    LineEndingCR.IsChecked = false;
-                    LineEndingLF.IsChecked = true;
-                    LineEndingCRLF.IsChecked = false;
-                    break;
-
-                case LineEnding.CRLF:
-                    LineEndingNone.IsChecked = false;
-                    LineEndingCR.IsChecked = false;
-                    LineEndingLF.IsChecked = false;
-                    LineEndingCRLF.IsChecked = true;
-                    break;
+                currentIndex++;
             }
         }
 
