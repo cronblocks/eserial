@@ -62,6 +62,7 @@ namespace ESerial.SerialLib.Internals
             if (_serialPort != null && _serialPort.IsOpen)
             {
                 _serialPort.Write(data);
+                DataSent?.Invoke(data);
             }
             else
             {
