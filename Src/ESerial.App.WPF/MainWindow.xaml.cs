@@ -311,7 +311,7 @@ namespace ESerial.App.WPF
                 }
             }
 
-            Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
+            Debug.WriteLine($"Data Bits - {_serial.DataBits.ToString().Replace("_", "")}");
         }
 
         private void OnParitySelectionChanged(object sender, SelectionChangedEventArgs e)
