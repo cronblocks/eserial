@@ -169,12 +169,24 @@ namespace ESerial.SerialLib
         #region Load & Save Settings
         public void StoreSettings()
         {
-
+            try
+            {
+                using (StreamWriter file = new StreamWriter(SETTINGS_FILENAME))
+                {
+                    file.WriteLine($"LineEnding = {LineEnding}");
+                    file.WriteLine($"BaudRate = {BaudRate.ToString().Replace("_", "")}");
+                    file.WriteLine($"FileInterLineTimeDelay = {FileInterLineTimeDelay}");
+                }
+            }
+            catch (Exception) { }
         }
 
         private void LoadSettings()
         {
+            if (File.Exists(SETTINGS_FILENAME))
+            {
 
+            }
         }
         #endregion
     }
