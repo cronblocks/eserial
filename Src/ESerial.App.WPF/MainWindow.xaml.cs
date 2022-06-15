@@ -170,6 +170,9 @@ namespace ESerial.App.WPF
                             BaudRateHeading.IsEnabled = true;
                             BaudRateComboBox.IsEnabled = true;
 
+                            DataBitsHeading.IsEnabled = true;
+                            DataBitsComboBox.IsEnabled = true;
+
                             ParityHeading.IsEnabled = true;
                             ParityComboBox.IsEnabled = true;
 
@@ -195,6 +198,9 @@ namespace ESerial.App.WPF
                             BaudRateHeading.IsEnabled = false;
                             BaudRateComboBox.IsEnabled = false;
 
+                            DataBitsHeading.IsEnabled = false;
+                            DataBitsComboBox.IsEnabled = false;
+
                             ParityHeading.IsEnabled = false;
                             ParityComboBox.IsEnabled = false;
 
@@ -219,6 +225,9 @@ namespace ESerial.App.WPF
 
                             BaudRateHeading.IsEnabled = false;
                             BaudRateComboBox.IsEnabled = false;
+
+                            DataBitsHeading.IsEnabled = false;
+                            DataBitsComboBox.IsEnabled = false;
 
                             ParityHeading.IsEnabled = false;
                             ParityComboBox.IsEnabled = false;
