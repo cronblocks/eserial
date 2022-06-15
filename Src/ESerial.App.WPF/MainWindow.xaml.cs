@@ -134,8 +134,18 @@ namespace ESerial.App.WPF
                     MainAppWindow.Dispatcher.Invoke(
                         () =>
                         {
+                            SerialPortHeading.IsEnabled = true;
                             SerialPortComboBox.IsEnabled = true;
+
+                            BaudRateHeading.IsEnabled = true;
                             BaudRateComboBox.IsEnabled = true;
+
+                            ParityHeading.IsEnabled = true;
+                            ParityComboBox.IsEnabled = true;
+
+                            StopBitsHeading.IsEnabled = true;
+                            StopBitsComboBox.IsEnabled = true;
+
                             StartButton.Content = _startButtonStartTitle;
 
                             TransmitTextBox.IsEnabled = false;
@@ -149,8 +159,18 @@ namespace ESerial.App.WPF
                     MainAppWindow.Dispatcher.Invoke(
                         () =>
                         {
+                            SerialPortHeading.IsEnabled = false;
                             SerialPortComboBox.IsEnabled = false;
+
+                            BaudRateHeading.IsEnabled = false;
                             BaudRateComboBox.IsEnabled = false;
+
+                            ParityHeading.IsEnabled = false;
+                            ParityComboBox.IsEnabled = false;
+
+                            StopBitsHeading.IsEnabled = false;
+                            StopBitsComboBox.IsEnabled = false;
+
                             StartButton.Content = _startButtonStopTitle;
 
                             TransmitTextBox.IsEnabled = true;
@@ -164,8 +184,18 @@ namespace ESerial.App.WPF
                     MainAppWindow.Dispatcher.Invoke(
                         () =>
                         {
+                            SerialPortHeading.IsEnabled = false;
                             SerialPortComboBox.IsEnabled = false;
+
+                            BaudRateHeading.IsEnabled = false;
                             BaudRateComboBox.IsEnabled = false;
+
+                            ParityHeading.IsEnabled = false;
+                            ParityComboBox.IsEnabled = false;
+
+                            StopBitsHeading.IsEnabled = false;
+                            StopBitsComboBox.IsEnabled = false;
+
                             StartButton.Content = _startButtonStopTitle;
 
                             TransmitTextBox.IsEnabled = false;
