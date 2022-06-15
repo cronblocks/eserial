@@ -50,6 +50,7 @@ namespace ESerial.App.WPF
             SetUiLineEndingOption();
             SetUiInterLineTimeDelay();
             SetUiBaudRates();
+            SetUiDataBits();
             SetUiParity();
             SetUiStopBits();
         }
@@ -86,6 +87,22 @@ namespace ESerial.App.WPF
                 if (baudRate == _serial.BaudRate)
                 {
                     BaudRateComboBox.SelectedIndex = currentIndex;
+                }
+
+                currentIndex++;
+            }
+        }
+
+        private void SetUiDataBits()
+        {
+            int currentIndex = 0;
+            foreach (DataBits dataBits in Enum.GetValues(typeof(DataBits)))
+            {
+                DataBitsComboBox.Items.Add(dataBits.ToString().Replace("_", ""));
+
+                if (dataBits == _serial.DataBits)
+                {
+                    DataBitsComboBox.SelectedIndex = currentIndex;
                 }
 
                 currentIndex++;
