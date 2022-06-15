@@ -23,6 +23,8 @@ namespace ESerial.SerialLib
         public BaudRate BaudRate { get; set; } = BaudRate._115200;
         public uint FileInterLineTimeDelay { get; set; } = 200; // Time delay in milliseconds
 
+        private const string SETTINGS_FILENAME = "Settings.sav";
+
         private PortsDiscoverer _portDiscoverer;
         private PortCommunicator _portCommunicator;
         private FileTransmitter _fileTransmitter;
