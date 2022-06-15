@@ -278,6 +278,25 @@ namespace ESerial.App.WPF
             Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
         }
 
+        private void OnDataBitsSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataBitsComboBox.SelectedIndex >= 0)
+            {
+                string enumStr = $"_{DataBitsComboBox.Items[DataBitsComboBox.SelectedIndex]}";
+
+                if (Enum.IsDefined(typeof(DataBits), enumStr))
+                {
+                    Enum.TryParse(typeof(DataBits), enumStr, out object? dataBits);
+                    if (dataBits != null)
+                    {
+                        _serial.DataBits = (DataBits)dataBits;
+                    }
+                }
+            }
+
+            Debug.WriteLine($"Baud Rate - {_serial.BaudRate.ToString().Replace("_", "")}");
+        }
+
         private void OnParitySelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ParityComboBox.SelectedIndex >= 0)
