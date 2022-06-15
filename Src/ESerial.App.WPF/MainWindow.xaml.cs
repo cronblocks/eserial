@@ -50,6 +50,8 @@ namespace ESerial.App.WPF
             SetUiLineEndingOption();
             SetUiInterLineTimeDelay();
             SetUiBaudRates();
+            SetUiParity();
+            SetUiStopBits();
         }
 
         #region GUI Initialization
@@ -84,6 +86,38 @@ namespace ESerial.App.WPF
                 if (baudRate == _serial.BaudRate)
                 {
                     BaudRateComboBox.SelectedIndex = currentIndex;
+                }
+
+                currentIndex++;
+            }
+        }
+
+        private void SetUiParity()
+        {
+            int currentIndex = 0;
+            foreach (Parity parity in Enum.GetValues(typeof(Parity)))
+            {
+                ParityComboBox.Items.Add(parity.ToString());
+
+                if (parity == _serial.Parity)
+                {
+                    ParityComboBox.SelectedIndex = currentIndex;
+                }
+
+                currentIndex++;
+            }
+        }
+
+        private void SetUiStopBits()
+        {
+            int currentIndex = 0;
+            foreach (StopBits stopBits in Enum.GetValues(typeof(StopBits)))
+            {
+                StopBitsComboBox.Items.Add(stopBits.ToString());
+
+                if (stopBits == _serial.StopBits)
+                {
+                    StopBitsComboBox.SelectedIndex = currentIndex;
                 }
 
                 currentIndex++;
