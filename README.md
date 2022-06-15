@@ -1,6 +1,4 @@
-# eserial
-
-**v1.0**
+# eserial - *v1.0*
 
 &nbsp;
 ***Easy and Simple Serial Port Interface***
