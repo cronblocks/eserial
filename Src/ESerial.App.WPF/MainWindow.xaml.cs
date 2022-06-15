@@ -266,23 +266,20 @@ namespace ESerial.App.WPF
             }
         }
 
-        private void OnLineEndingChanged(object sender, RoutedEventArgs e)
+        private void OnLineEndingSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (LineEndingNone?.IsChecked == true)
+            if (LineEndingComboBox.SelectedIndex >= 0)
             {
-                _serial.LineEnding = LineEnding.None;
-            }
-            else if (LineEndingCR?.IsChecked == true)
-            {
-                _serial.LineEnding = LineEnding.CR;
-            }
-            else if (LineEndingLF?.IsChecked == true)
-            {
-                _serial.LineEnding = LineEnding.LF;
-            }
-            else if (LineEndingCRLF?.IsChecked == true)
-            {
-                _serial.LineEnding = LineEnding.CRLF;
+                string enumStr = (string)LineEndingComboBox.Items[LineEndingComboBox.SelectedIndex];
+
+                if (Enum.IsDefined(typeof(LineEnding), enumStr))
+                {
+                    Enum.TryParse(typeof(LineEnding), enumStr, out object? lineEnding);
+                    if (lineEnding != null)
+                    {
+                        _serial.LineEnding = (LineEnding)lineEnding;
+                    }
+                }
             }
 
             Debug.WriteLine($"Line Ending - {_serial.LineEnding}");
