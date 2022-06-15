@@ -1,6 +1,5 @@
 ﻿using ESerial.SerialLib.Types;
 using System;
-using System.Collections.Generic;
 using System.IO.Ports;
 using System.Text;
 using System.Threading;
@@ -49,7 +48,7 @@ namespace ESerial.SerialLib.Internals
 
                 _thread.Join(500);
                 _thread = null;
-                
+
                 if (_serialPort.IsOpen)
                 {
                     _serialPort.Close();
