@@ -24,7 +24,12 @@ namespace ESerial.SerialLib.Internals
         {
             if (!_isRunning)
             {
-                _serialPort = new SerialPort(portName, (int)baudRate, Parity.None, 8, StopBits.One);
+                _serialPort = new SerialPort(
+                    portName,
+                    (int)baudRate,
+                    System.IO.Ports.Parity.None,
+                    8,
+                    System.IO.Ports.StopBits.One);
                 _serialPort.ReadTimeout = READ_TIMEOUT_MILLISECONDS;
                 _serialPort.WriteTimeout = WRITE_TIMEOUT_MILLISECONDS;
                 _serialPort.Open();
