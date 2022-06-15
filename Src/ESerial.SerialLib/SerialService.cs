@@ -178,6 +178,7 @@ namespace ESerial.SerialLib
                 {
                     file.WriteLine($"LineEnding = {LineEnding}");
                     file.WriteLine($"BaudRate = {BaudRate.ToString().Replace("_", "")}");
+                    file.WriteLine($"DataBits = {DataBits.ToString().Replace("_", "")}");
                     file.WriteLine($"Parity = {Parity}");
                     file.WriteLine($"StopBits = {StopBits}");
                     file.WriteLine($"FileInterLineTimeDelay = {FileInterLineTimeDelay}");
