@@ -61,11 +61,12 @@ namespace ESerial.SerialLib.Internals
                 }
 
                 _serialPort = new SerialPort(
-                    portName,
-                    (int)baudRate,
-                    ioParity,
-                    8,
-                    ioStopBits);
+                                        portName,
+                                        (int)baudRate,
+                                        ioParity,
+                                        8,
+                                        ioStopBits);
+
                 _serialPort.ReadTimeout = READ_TIMEOUT_MILLISECONDS;
                 _serialPort.WriteTimeout = WRITE_TIMEOUT_MILLISECONDS;
                 _serialPort.Open();
