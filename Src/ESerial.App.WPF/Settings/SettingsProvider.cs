@@ -10,5 +10,17 @@ namespace ESerial.App.WPF.Settings
 {
     internal class SettingsProvider : ISettingsProvider
     {
+        private readonly string SETTINGS_DIRNAME;
+        private const string SETTINGS_FILENAME = "Settings.ini";
+
+        public SettingsProvider()
+        {
+            SETTINGS_DIRNAME = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}{Path.DirectorySeparatorChar}ESerial";
+
+            if (!Directory.Exists(SETTINGS_DIRNAME))
+            {
+                Directory.CreateDirectory(SETTINGS_DIRNAME);
+            }
+        }
     }
 }
