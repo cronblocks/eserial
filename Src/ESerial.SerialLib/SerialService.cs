@@ -183,72 +183,34 @@ namespace ESerial.SerialLib
 
         private void LoadSettings()
         {
-            if (File.Exists(Path.Combine(SETTINGS_DIRNAME, SETTINGS_FILENAME)))
+            if (Enum.TryParse(_settingsProvider.RetrieveString("LineEnding"), out LineEnding lineEnding))
             {
-                try
-                {
-                    using (StreamReader file = new StreamReader(Path.Combine(SETTINGS_DIRNAME, SETTINGS_FILENAME)))
-                    {
-                        string line;
-                        while ((line = file.ReadLine()) != null)
-                        {
-                            line = line.Trim();
-                            
-                            string[] parts = line.Split('=');
-                            if (parts.Length == 2)
-                            {
-                                string name = parts[0].Trim();
-                                string value = parts[1].Trim();
+                LineEnding = lineEnding;
+            }
 
-                                switch (name)
-                                {
-                                    case "LineEnding":
-                                        if (Enum.TryParse(value, out LineEnding lineEnding))
-                                        {
-                                            LineEnding = lineEnding;
-                                        }
-                                        break;
+            if (Enum.TryParse($"_{_settingsProvider.RetrieveString("BaudRate")}", out BaudRate baudRate))
+            {
+                BaudRate = baudRate;
+            }
 
-                                    case "BaudRate":
-                                        if (Enum.TryParse($"_{value}", out BaudRate baudRate))
-                                        {
-                                            BaudRate = baudRate;
-                                        }
-                                        break;
+            if (Enum.TryParse($"_{_settingsProvider.RetrieveString("DataBits")}", out DataBits dataBits))
+            {
+                DataBits = dataBits;
+            }
 
-                                    case "DataBits":
-                                        if (Enum.TryParse($"_{value}", out DataBits dataBits))
-                                        {
-                                            DataBits = dataBits;
-                                        }
-                                        break;
+            if (Enum.TryParse(_settingsProvider.RetrieveString("Parity"), out Parity parity))
+            {
+                Parity = parity;
+            }
 
-                                    case "Parity":
-                                        if (Enum.TryParse(value, out Parity parity))
-                                        {
-                                            Parity = parity;
-                                        }
-                                        break;
+            if (Enum.TryParse(_settingsProvider.RetrieveString("StopBits"), out StopBits stopBits))
+            {
+                StopBits = stopBits;
+            }
 
-                                    case "StopBits":
-                                        if (Enum.TryParse(value, out StopBits stopBits))
-                                        {
-                                            StopBits = stopBits;
-                                        }
-                                        break;
-
-                                    case "FileInterLineTimeDelay":
-                                        if (uint.TryParse(value, out uint fileInterLineTimeDelay))
-                                        {
-                                            FileInterLineTimeDelay = fileInterLineTimeDelay;
-                                        }
-                                        break;
-                                }
-                            }
-                        }
-                    }
-                }
-                catch (Exception) { }
+            if (uint.TryParse(_settingsProvider.RetrieveString("FileInterLineTimeDelay"), out uint fileInterLineTimeDelay))
+            {
+                FileInterLineTimeDelay = fileInterLineTimeDelay;
             }
         }
         #endregion
