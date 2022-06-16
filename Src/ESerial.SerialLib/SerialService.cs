@@ -182,7 +182,7 @@ namespace ESerial.SerialLib
         {
             try
             {
-                using (StreamWriter file = new StreamWriter(SETTINGS_FILENAME))
+                using (StreamWriter file = new StreamWriter(Path.Combine(SETTINGS_DIRNAME, SETTINGS_FILENAME)))
                 {
                     file.WriteLine($"LineEnding = {LineEnding}");
                     file.WriteLine($"BaudRate = {BaudRate.ToString().Replace("_", "")}");
@@ -197,11 +197,11 @@ namespace ESerial.SerialLib
 
         private void LoadSettings()
         {
-            if (File.Exists(SETTINGS_FILENAME))
+            if (File.Exists(Path.Combine(SETTINGS_DIRNAME, SETTINGS_FILENAME)))
             {
                 try
                 {
-                    using (StreamReader file = new StreamReader(SETTINGS_FILENAME))
+                    using (StreamReader file = new StreamReader(Path.Combine(SETTINGS_DIRNAME, SETTINGS_FILENAME)))
                     {
                         string line;
                         while ((line = file.ReadLine()) != null)
