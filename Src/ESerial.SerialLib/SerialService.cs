@@ -27,6 +27,7 @@ namespace ESerial.SerialLib
         public StopBits StopBits { get; set; } = StopBits.One;
         public uint FileInterLineTimeDelay { get; set; } = 200; // Time delay in milliseconds
 
+        private ISettingsProvider _settingsProvider;
         private PortsDiscoverer _portDiscoverer;
         private PortCommunicator _portCommunicator;
         private FileTransmitter _fileTransmitter;
@@ -34,6 +35,8 @@ namespace ESerial.SerialLib
         #region Service Initialization & Control
         public SerialService(ISettingsProvider settings)
         {
+            _settingsProvider = settings;
+
             _portDiscoverer = new PortsDiscoverer();
             _portDiscoverer.NewPortFound += OnNewPortFound;
             _portDiscoverer.PortRemoved += OnPortRemoved;
