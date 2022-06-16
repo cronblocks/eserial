@@ -7,7 +7,16 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>$(MSBuildProjectName.Replace(".App.WPF", ""))</AssemblyName>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <BaseOutputPath>..\..\Build\$(MSBuildProjectName)\bin\</BaseOutputPath>
+    <BaseIntermediateOutputPath>..\..\Build\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+    <Page Remove="obj\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Icon.ico" />
