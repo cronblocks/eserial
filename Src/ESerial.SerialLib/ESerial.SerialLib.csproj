@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>$(MSBuildProjectName.Replace("ESerial.", ""))</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
