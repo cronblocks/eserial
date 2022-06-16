@@ -27,6 +27,7 @@ namespace ESerial.SerialLib
         public StopBits StopBits { get; set; } = StopBits.One;
         public uint FileInterLineTimeDelay { get; set; } = 200; // Time delay in milliseconds
 
+        private readonly string SETTINGS_DIRNAME;
         private const string SETTINGS_FILENAME = "Settings.ini";
 
         private PortsDiscoverer _portDiscoverer;
@@ -36,6 +37,13 @@ namespace ESerial.SerialLib
         #region Service Initialization & Control
         public SerialService()
         {
+            SETTINGS_DIRNAME = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ESerial";
+
+            if (!Directory.Exists(SETTINGS_DIRNAME))
+            {
+                Directory.CreateDirectory(SETTINGS_DIRNAME);
+            }
+
             _portDiscoverer = new PortsDiscoverer();
             _portDiscoverer.NewPortFound += OnNewPortFound;
             _portDiscoverer.PortRemoved += OnPortRemoved;
