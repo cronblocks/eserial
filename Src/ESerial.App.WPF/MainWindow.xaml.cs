@@ -27,7 +27,7 @@ namespace ESerial.App.WPF
 
         private string _startButtonStartTitle = "";
         private string _startButtonStopTitle = "Stop";
-        private string _dumpDirectoryName = $"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}ESerial-Dump{Path.DirectorySeparatorChar}";
+        private string _dumpDirectoryName = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}{Path.DirectorySeparatorChar}ESerial Dump{Path.DirectorySeparatorChar}";
         private string _dumpFilename = "";
 
         public MainWindow()
