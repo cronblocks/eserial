@@ -37,7 +37,7 @@ namespace ESerial.SerialLib
         #region Service Initialization & Control
         public SerialService()
         {
-            SETTINGS_DIRNAME = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ESerial";
+            SETTINGS_DIRNAME = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}{Path.DirectorySeparatorChar}ESerial";
 
             if (!Directory.Exists(SETTINGS_DIRNAME))
             {
