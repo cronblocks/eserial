@@ -179,6 +179,8 @@ namespace ESerial.SerialLib
             _settingsProvider.SetString("Parity", Parity.ToString());
             _settingsProvider.SetString("StopBits", StopBits.ToString());
             _settingsProvider.SetString("FileInterLineTimeDelay", FileInterLineTimeDelay.ToString());
+
+            _settingsProvider.SaveSettings();
         }
 
         private void LoadSettings()
