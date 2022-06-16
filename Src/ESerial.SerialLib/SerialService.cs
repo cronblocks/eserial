@@ -173,19 +173,12 @@ namespace ESerial.SerialLib
         #region Load & Save Settings
         public void StoreSettings()
         {
-            try
-            {
-                using (StreamWriter file = new StreamWriter(Path.Combine(SETTINGS_DIRNAME, SETTINGS_FILENAME)))
-                {
-                    file.WriteLine($"LineEnding = {LineEnding}");
-                    file.WriteLine($"BaudRate = {BaudRate.ToString().Replace("_", "")}");
-                    file.WriteLine($"DataBits = {DataBits.ToString().Replace("_", "")}");
-                    file.WriteLine($"Parity = {Parity}");
-                    file.WriteLine($"StopBits = {StopBits}");
-                    file.WriteLine($"FileInterLineTimeDelay = {FileInterLineTimeDelay}");
-                }
-            }
-            catch (Exception) { }
+            _settingsProvider.StoreString("LineEnding", LineEnding.ToString());
+            _settingsProvider.StoreString("BaudRate", BaudRate.ToString().Replace("_", ""));
+            _settingsProvider.StoreString("DataBits", DataBits.ToString().Replace("_", ""));
+            _settingsProvider.StoreString("Parity", Parity.ToString());
+            _settingsProvider.StoreString("StopBits", StopBits.ToString());
+            _settingsProvider.StoreString("FileInterLineTimeDelay", FileInterLineTimeDelay.ToString());
         }
 
         private void LoadSettings()
