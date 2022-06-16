@@ -1,3 +1,4 @@
+﻿using ESerial.App.WPF.Settings;
 ﻿using ESerial.SerialLib;
 using ESerial.SerialLib.Types;
 using Microsoft.Win32;
@@ -22,6 +23,7 @@ namespace ESerial.App.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SettingsProvider _settings;
         private SerialService _serial;
         private FileStream? _dumpFileStream;
 
@@ -32,7 +34,8 @@ namespace ESerial.App.WPF
 
         public MainWindow()
         {
-            _serial = new SerialService();
+            _settings = new SettingsProvider();
+            _serial = new SerialService(_settings);
 
             InitializeComponent();
 
