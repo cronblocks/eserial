@@ -35,7 +35,7 @@ namespace ESerial.SerialLib
         private FileTransmitter _fileTransmitter;
 
         #region Service Initialization & Control
-        public SerialService()
+        public SerialService(ISettingsProvider settings)
         {
             SETTINGS_DIRNAME = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}{Path.DirectorySeparatorChar}ESerial";
 
