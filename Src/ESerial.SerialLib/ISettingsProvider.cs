@@ -4,5 +4,6 @@
     {
         void SetString(string key, string value);
         string GetString(string key);
+        void SaveSettings();
     }
 }
