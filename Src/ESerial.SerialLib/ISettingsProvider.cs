@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ESerial.SerialLib
+﻿namespace ESerial.SerialLib
 {
     public interface ISettingsProvider
     {
