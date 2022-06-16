@@ -173,42 +173,42 @@ namespace ESerial.SerialLib
         #region Load & Save Settings
         public void StoreSettings()
         {
-            _settingsProvider.StoreString("LineEnding", LineEnding.ToString());
-            _settingsProvider.StoreString("BaudRate", BaudRate.ToString().Replace("_", ""));
-            _settingsProvider.StoreString("DataBits", DataBits.ToString().Replace("_", ""));
-            _settingsProvider.StoreString("Parity", Parity.ToString());
-            _settingsProvider.StoreString("StopBits", StopBits.ToString());
-            _settingsProvider.StoreString("FileInterLineTimeDelay", FileInterLineTimeDelay.ToString());
+            _settingsProvider.SetString("LineEnding", LineEnding.ToString());
+            _settingsProvider.SetString("BaudRate", BaudRate.ToString().Replace("_", ""));
+            _settingsProvider.SetString("DataBits", DataBits.ToString().Replace("_", ""));
+            _settingsProvider.SetString("Parity", Parity.ToString());
+            _settingsProvider.SetString("StopBits", StopBits.ToString());
+            _settingsProvider.SetString("FileInterLineTimeDelay", FileInterLineTimeDelay.ToString());
         }
 
         private void LoadSettings()
         {
-            if (Enum.TryParse(_settingsProvider.RetrieveString("LineEnding"), out LineEnding lineEnding))
+            if (Enum.TryParse(_settingsProvider.GetString("LineEnding"), out LineEnding lineEnding))
             {
                 LineEnding = lineEnding;
             }
 
-            if (Enum.TryParse($"_{_settingsProvider.RetrieveString("BaudRate")}", out BaudRate baudRate))
+            if (Enum.TryParse($"_{_settingsProvider.GetString("BaudRate")}", out BaudRate baudRate))
             {
                 BaudRate = baudRate;
             }
 
-            if (Enum.TryParse($"_{_settingsProvider.RetrieveString("DataBits")}", out DataBits dataBits))
+            if (Enum.TryParse($"_{_settingsProvider.GetString("DataBits")}", out DataBits dataBits))
             {
                 DataBits = dataBits;
             }
 
-            if (Enum.TryParse(_settingsProvider.RetrieveString("Parity"), out Parity parity))
+            if (Enum.TryParse(_settingsProvider.GetString("Parity"), out Parity parity))
             {
                 Parity = parity;
             }
 
-            if (Enum.TryParse(_settingsProvider.RetrieveString("StopBits"), out StopBits stopBits))
+            if (Enum.TryParse(_settingsProvider.GetString("StopBits"), out StopBits stopBits))
             {
                 StopBits = stopBits;
             }
 
-            if (uint.TryParse(_settingsProvider.RetrieveString("FileInterLineTimeDelay"), out uint fileInterLineTimeDelay))
+            if (uint.TryParse(_settingsProvider.GetString("FileInterLineTimeDelay"), out uint fileInterLineTimeDelay))
             {
                 FileInterLineTimeDelay = fileInterLineTimeDelay;
             }

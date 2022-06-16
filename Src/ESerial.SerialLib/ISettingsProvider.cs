@@ -2,7 +2,7 @@
 {
     public interface ISettingsProvider
     {
-        void StoreString(string key, string value);
-        string RetrieveString(string key);
+        void SetString(string key, string value);
+        string GetString(string key);
     }
 }
