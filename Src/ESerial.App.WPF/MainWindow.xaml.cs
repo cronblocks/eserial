@@ -387,7 +387,7 @@ namespace ESerial.App.WPF
                         Directory.CreateDirectory(_dumpDirectoryName);
                     }
 
-                    _dumpFilename = _dumpDirectoryName + $"ESerial-{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.dump";
+                    _dumpFilename = _dumpDirectoryName + $"ESerial - {DateTime.Now.ToString("yyyy_MM_dd - HH_mm_ss")}.dump";
                 }
                 catch (Exception)
                 {
