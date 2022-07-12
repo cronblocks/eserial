@@ -1,6 +1,6 @@
 # eserial - *v2.3*
 
-An ***Easy*** and ***Simple*** Serial / COM Port Interface. *eserial* is just an easy and simple interface application for using Serial Port / UART.
+An ***Easy*** and ***Simple*** Serial / COM Port Interface. *eserial* is a simple interface application for using Serial Port / UART.
 
 
 <div align="center"><img src="./Docs/WindowDisplay.png" width="100%" /></div>
