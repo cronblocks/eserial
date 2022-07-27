@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************************
  * Purpose:
- *     Implementation of ISettingsProvider for using ESerial.SerialLib
- *
+ *     Load / store of settings -
+ *         Implementation of ISettingsProvider for using ESerial.SerialLib
  *
  *****************************************************************************************
  * Author: Usama
