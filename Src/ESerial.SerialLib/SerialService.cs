@@ -1,4 +1,23 @@
-﻿using ESerial.SerialLib.Internals;
+/*****************************************************************************************
+ * Purpose:
+ *     Providing a single interface to dependant application
+ *
+ *
+ *****************************************************************************************
+ * Author: Usama
+ *
+ *****************************************************************************************
+ * Changes:
+ *
+ * Date              Description
+ * ----              -----------
+ *
+ *
+ *
+ *
+ *****************************************************************************************/
+
+using ESerial.SerialLib.Internals;
 using ESerial.SerialLib.Types;
 using System;
 using System.Collections.Generic;
