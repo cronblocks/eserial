@@ -1,4 +1,23 @@
-﻿using ESerial.SerialLib;
+﻿/*****************************************************************************************
+ * Purpose:
+ *     Implementation of ISettingsProvider for using ESerial.SerialLib
+ *
+ *
+ *****************************************************************************************
+ * Author: Usama
+ *
+ *****************************************************************************************
+ * Changes:
+ *
+ * Date              Description
+ * ----              -----------
+ *
+ *
+ *
+ *
+ *****************************************************************************************/
+
+using ESerial.SerialLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
